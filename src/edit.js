@@ -1,10 +1,12 @@
-import {Todo} from "./todo.js"
-
-function toggleCompleted() {
-  if(Todo.completed === false) {
-    Todo.completed = true;
+function toggleCompleted(todo) {
+  if(todo.completed === false) {
+    todo.completed = true;
   }
   else {
-    Todo.completed = false;
+    todo.completed = false;
   }
 }
+
+// function deleteTodo(todo) {
+
+// }

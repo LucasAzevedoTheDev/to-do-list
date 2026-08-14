@@ -1,11 +1,12 @@
 class Todo {
 
-  constructor(title, description, dueDate, priority, notes) {
+  constructor(title, description, dueDate, priority, notes, project) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.notes = notes;
+    this.project = project;
   }
   completed = false;
 }
@@ -26,10 +27,10 @@ function addProject(name) {
 
 
 function addTodoToProject(title, description, dueDate, priority, notes, project) {
-  const todo = new Todo(title, description, dueDate, priority, notes);
+  const todo = new Todo(title, description, dueDate, priority, notes, project);
   project.todos.push(todo);
 }
 
 let projects = [];
 
-export {addProject, addTodoToProject, projects, Todo};
+export {addProject, addTodoToProject, projects};
