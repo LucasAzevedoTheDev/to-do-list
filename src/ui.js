@@ -9,4 +9,10 @@ function createContainer() {
   body.appendChild(containerDiv);
 }
 
+function createTodo() {
+  // 
+}
+
+export {createContainer, createTodo};
+
 
