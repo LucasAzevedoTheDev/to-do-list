@@ -10,4 +10,5 @@ addTodoToProject("drink", "water", "tomorrow", "max", "no additional notes", mai
 
 console.log(defaultProject);
 console.log(projects);
+console.log(mainProject);
 

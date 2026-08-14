@@ -32,4 +32,4 @@ function addTodoToProject(title, description, dueDate, priority, notes, project)
 
 let projects = [];
 
-export {addProject, addTodoToProject, projects};
+export {addProject, addTodoToProject, projects, Todo};
