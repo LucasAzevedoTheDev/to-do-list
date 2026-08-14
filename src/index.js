@@ -1,5 +1,8 @@
 import "./styles.css";
-import {defaultProject, projects} from "./todo.js";
+import {addProject, addTodoToProject} from "./todo.js";
 
-console.log(defaultProject);
-console.log(projects);
+const defaultProject = addProject("default");
+
+addTodoToProject("walk", "walk the dog", "08/15", "medium", "no additional notes", defaultProject);
+
+console.log(defaultProject.todos);

@@ -1,5 +1,4 @@
 class Todo {
-  completed = false;
 
   constructor(title, description, dueDate, priority, notes) {
     this.title = title;
@@ -8,6 +7,7 @@ class Todo {
     this.priority = priority;
     this.notes = notes;
   }
+  completed = false;
 }
 
 class Project {
@@ -17,7 +17,6 @@ class Project {
     this.todos = [];
   }
 }
-let projects = [];
 
 function addProject(name) {
   const project = new Project(name);
@@ -31,6 +30,6 @@ function addTodoToProject(title, description, dueDate, priority, notes, project)
   project.todos.push(todo);
 }
 
-const defaultProject = addProject("default");
+let projects = [];
 
-export {defaultProject, projects};
+export {addProject, addTodoToProject, projects};
