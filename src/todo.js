@@ -1,5 +1,5 @@
 class Todo {
-  checklist = false;
+  completed = false;
 
   constructor(title, description, dueDate, priority, notes) {
     this.title = title;
@@ -17,6 +17,20 @@ class Project {
     this.todos = [];
   }
 }
-// i need to have projects ✅
-// Users should be able to create new projects ✅
-//  and choose which project their todos go into 
+let projects = [];
+
+function addProject(name) {
+  const project = new Project(name);
+  projects.push(project);
+  return project;
+}
+
+
+function addTodoToProject(title, description, dueDate, priority, notes, project) {
+  const todo = new Todo(title, description, dueDate, priority, notes);
+  project.todos.push(todo);
+}
+
+const defaultProject = addProject("default");
+
+export {defaultProject, projects};
