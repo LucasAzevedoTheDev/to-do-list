@@ -1,3 +1,5 @@
+import {projects} from "./todo.js";
+
 function toggleCompleted(todo) {
   if(todo.completed === false) {
     todo.completed = true;
@@ -17,3 +19,15 @@ function deleteTodo(todo) {
     }
   }
 }
+
+function deleteProject(project) {
+
+  for (let i = 0; i < projects.length; i++) {
+    if(projects[i] === project) {
+      projects.splice(i, i);
+      break;
+    }
+  }
+}
+
+export {toggleCompleted, deleteTodo, deleteProject};
