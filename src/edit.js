@@ -24,7 +24,7 @@ function deleteProject(project) {
 
   for (let i = 0; i < projects.length; i++) {
     if(projects[i] === project) {
-      projects.splice(i, i);
+      projects.splice(i, 1);
       break;
     }
   }
