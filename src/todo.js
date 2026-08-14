@@ -14,8 +14,8 @@ class Project {
   
   constructor(name) {
     this.name = name;
-    this.todos = [];
   }
+  todos = [];
 }
 
 function addProject(name) {
