@@ -1,4 +1,5 @@
 import "./styles.css";
+import {deleteTodo} from "./edit.js";
 
 const containerDiv = document.createElement("div");
 containerDiv.classList.add("container-div");
@@ -37,12 +38,20 @@ function createTodoDiv(todo) {
   todoCheck.type = "checkbox";
   todoCheck.classList.add("todo-check");
 
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-button");
+  deleteButton.addEventListener("click", () => {
+    todoDiv.remove();
+    deleteTodo(todo);
+  });
+
   todoDiv.appendChild(todoTitle);
   todoDiv.appendChild(todoDescription);
   todoDiv.appendChild(todoDate);
   todoDiv.appendChild(todoPriority);
   todoDiv.appendChild(todoNotes);
   todoDiv.appendChild(todoCheck);
+  todoDiv.appendChild(deleteButton);
 }
 
 export {createContainer, createTodoDiv};
