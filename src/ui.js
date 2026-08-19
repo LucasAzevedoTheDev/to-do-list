@@ -40,6 +40,7 @@ function createTodoDiv(todo) {
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
+  
   deleteButton.addEventListener("click", () => {
     todoDiv.remove();
     deleteTodo(todo);

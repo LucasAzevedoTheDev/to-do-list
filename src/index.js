@@ -5,8 +5,6 @@ import {createContainer, createTodoDiv} from "./ui.js";
 
 const defaultProject = addProject("default");
 const todo1 = addTodoToProject("walk", "walk the dog", "08/15", "medium", "no additional notes", defaultProject);
-
-const mainProject = addProject("mainProject");
 const todo2 = addTodoToProject("drink", "water", "tomorrow", "max", "no additional notes", defaultProject);
 
 createContainer();
