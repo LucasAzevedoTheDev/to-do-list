@@ -33,12 +33,16 @@ function createTodoDiv(todo) {
   todoNotes.classList.add("todo-notes");
   todoNotes.textContent = todo.notes;
 
-  
+  const todoCheck = document.createElement("input");
+  todoCheck.type = "checkbox";
+  todoCheck.classList.add("todo-check");
+
   todoDiv.appendChild(todoTitle);
   todoDiv.appendChild(todoDescription);
   todoDiv.appendChild(todoDate);
   todoDiv.appendChild(todoPriority);
   todoDiv.appendChild(todoNotes);
+  todoDiv.appendChild(todoCheck);
 }
 
 export {createContainer, createTodoDiv};
