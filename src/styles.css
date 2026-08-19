@@ -3,3 +3,16 @@
   margin: 0;
   padding: 0;
 }
+
+.container-div {
+  background-color: yellow;
+  width: 100%;
+  height: 500px;
+}
+
+.todo-div {
+  background-color: black;
+  color: white;
+  width: 20%;
+  height: 100px;
+}

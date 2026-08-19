@@ -10,6 +10,7 @@ function createContainer() {
 
 function createTodoDiv(todo) {
   const todoDiv = document.createElement("div");
+  todoDiv.classList.add("todo-div");
   containerDiv.appendChild(todoDiv);
 
   const todoTitle = document.createElement("p");
@@ -32,6 +33,7 @@ function createTodoDiv(todo) {
   todoNotes.classList.add("todo-notes");
   todoNotes.textContent = todo.notes;
 
+  
   todoDiv.appendChild(todoTitle);
   todoDiv.appendChild(todoDescription);
   todoDiv.appendChild(todoDate);

@@ -11,4 +11,6 @@ const todo2 = addTodoToProject("drink", "water", "tomorrow", "max", "no addition
 
 createContainer();
 
+createTodoDiv(todo1);
+
 
