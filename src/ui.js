@@ -1,18 +1,22 @@
 import "./styles.css";
 import {deleteTodo} from "./edit.js";
 
+const body = document.querySelector("body");
 const containerDiv = document.createElement("div");
 containerDiv.classList.add("container-div");
-const body = document.querySelector("body");
+
+const todoContainer = document.createElement("div");
+todoContainer.classList.add("todo-container");
 
 function createContainer() {
   body.appendChild(containerDiv);
+  containerDiv.appendChild(todoContainer);
 }
 
 function createTodoDiv(todo) {
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo-div");
-  containerDiv.appendChild(todoDiv);
+  todoContainer.appendChild(todoDiv);
 
   const todoTitle = document.createElement("p");
   todoTitle.classList.add("todo-title");
@@ -58,10 +62,10 @@ function createTodoDiv(todo) {
 function createProjectDiv(project) {
   const projectDiv = document.createElement("div");
   projectDiv.classList.add("project-div");
-  projectDiv.textContent = project;
+  projectDiv.textContent = project.name;
   containerDiv.prepend(projectDiv);
 }
 
-export {createContainer, createTodoDiv};
+export {createContainer, createTodoDiv, createProjectDiv};
 
 
