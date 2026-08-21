@@ -3,9 +3,9 @@ import {deleteTodo} from "./edit.js";
 
 const containerDiv = document.createElement("div");
 containerDiv.classList.add("container-div");
+const body = document.querySelector("body");
 
 function createContainer() {
-  const body = document.querySelector("body");
   body.appendChild(containerDiv);
 }
 
@@ -53,6 +53,13 @@ function createTodoDiv(todo) {
   todoDiv.appendChild(todoNotes);
   todoDiv.appendChild(todoCheck);
   todoDiv.appendChild(deleteButton);
+}
+
+function createProjectDiv(project) {
+  const projectDiv = document.createElement("div");
+  projectDiv.classList.add("project-div");
+  projectDiv.textContent = project;
+  containerDiv.prepend(projectDiv);
 }
 
 export {createContainer, createTodoDiv};
