@@ -1,5 +1,6 @@
 import "./styles.css";
 import {deleteTodo} from "./edit.js";
+import {projects} from "./todo.js";
 
 const body = document.querySelector("body");
 const containerDiv = document.createElement("div");
@@ -59,13 +60,19 @@ function createTodoDiv(todo) {
   todoDiv.appendChild(deleteButton);
 }
 
-function createProjectDiv(project) {
+function createProjectDiv() {
   const projectDiv = document.createElement("div");
   projectDiv.classList.add("project-div");
-  projectDiv.textContent = project.name;
   containerDiv.prepend(projectDiv);
+
+  projects.forEach(project => {
+    const projectP = document.createElement("p");
+    projectP.textContent = project.name;
+    projectDiv.appendChild(projectP);
+  });
 }
 
 export {createContainer, createTodoDiv, createProjectDiv};
+
 
 
