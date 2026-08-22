@@ -9,6 +9,8 @@
   width: 100%;
   height: 500px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 15px;
 }
 
@@ -17,4 +19,12 @@
   color: white;
   width: 20%;
   height: 120px;
+  padding: 5px;
+}
+
+.todo-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  gap: 15px;
 }
