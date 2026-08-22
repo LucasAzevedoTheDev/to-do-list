@@ -13,6 +13,9 @@ createTodoDiv(todo1);
 createTodoDiv(todo2);
 createProjectsDiv();
 
+// BUILD TODO.DUEDATE LOGIC (EXTERNAL LIBRARY)
+// BUILD TODO.PRIORITY LOGIC
+
 
 
 
