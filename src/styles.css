@@ -28,3 +28,12 @@
   display: flex;
   gap: 15px;
 }
+
+.project-div {
+  background-color: orange;
+  padding: 5px;
+  margin-top: 10px;
+  gap: 15px;
+  display: flex;
+  justify-content: space-around;
+}
