@@ -66,9 +66,14 @@ function createProjectDiv() {
   containerDiv.prepend(projectDiv);
 
   projects.forEach(project => {
-    const projectP = document.createElement("p");
-    projectP.textContent = project.name;
-    projectDiv.appendChild(projectP);
+    const projectButtons = document.createElement("button");
+    projectButtons.classList.add("project-buttons");
+    projectButtons.textContent = project.name;
+    projectDiv.appendChild(projectButtons);
+
+    projectButtons.addEventListener("click", () => {
+      // 
+    })
   });
 }
 
