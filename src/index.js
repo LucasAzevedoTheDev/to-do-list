@@ -1,19 +1,17 @@
 import "./styles.css";
 import {addProject, addTodoToProject, projects} from "./todo.js";
 import {toggleCompleted, deleteTodo, deleteProject} from "./edit.js";
-import {createContainer, createTodoDiv, createProjectDiv} from "./ui.js";
+import {createContainer, createTodoDiv, createProjectsDiv} from "./ui.js";
 
 const defaultProject = addProject("Default");
 const secondProject = addProject("Second");
 const thirdProject = addProject("Third");
 const todo1 = addTodoToProject("walk", "walk the dog", "08/15", "medium", "no additional notes", defaultProject);
 const todo2 = addTodoToProject("drink", "water", "tomorrow", "max", "no additional notes", defaultProject);
-  
 createContainer();
 createTodoDiv(todo1);
 createTodoDiv(todo2);
-createProjectDiv();
-console.log(projects);
+createProjectsDiv();
 
 
 

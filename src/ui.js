@@ -60,24 +60,28 @@ function createTodoDiv(todo) {
   todoDiv.appendChild(deleteButton);
 }
 
-function createProjectDiv() {
+function createProjectsDiv() {
   const projectDiv = document.createElement("div");
   projectDiv.classList.add("project-div");
-  containerDiv.prepend(projectDiv);
+  containerDiv.before(projectDiv);
 
-  projects.forEach(project => {
+  projects.forEach((project) => {
     const projectButtons = document.createElement("button");
     projectButtons.classList.add("project-buttons");
     projectButtons.textContent = project.name;
     projectDiv.appendChild(projectButtons);
 
-    projectButtons.addEventListener("click", () => {
-      // 
-    })
+    projectButtons.addEventListener("click", (event) => {
+      todoContainer.replaceChildren();
+      let currentProject = projects.find(project => project.name === event.target.textContent);
+      currentProject.todos.forEach((todo) => {
+        createTodoDiv(todo);
+      }); 
+    });
   });
 }
 
-export {createContainer, createTodoDiv, createProjectDiv};
+export {createContainer, createTodoDiv, createProjectsDiv};
 
 
 
