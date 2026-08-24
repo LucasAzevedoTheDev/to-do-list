@@ -37,4 +37,4 @@ function addTodoToProject(title, description, dueDate, priority, notes, project)
   return todo;
 }
 
-export {addProject, addTodoToProject, projects};
+export {addProject, addTodoToProject, projects, priority};

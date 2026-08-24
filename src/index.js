@@ -1,5 +1,5 @@
 import "./styles.css";
-import {addProject, addTodoToProject, projects} from "./todo.js";
+import {addProject, addTodoToProject, projects, priority} from "./todo.js";
 import {toggleCompleted, deleteTodo, deleteProject} from "./edit.js";
 import {createContainer, createTodoDiv, createProjectsDiv} from "./ui.js";
 
