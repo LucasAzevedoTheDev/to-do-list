@@ -1,3 +1,6 @@
+let projects = [];
+let priority = [1, 2, 3];
+
 class Todo {
   completed = false;
 
@@ -33,7 +36,5 @@ function addTodoToProject(title, description, dueDate, priority, notes, project)
 
   return todo;
 }
-
-let projects = [];
 
 export {addProject, addTodoToProject, projects};
