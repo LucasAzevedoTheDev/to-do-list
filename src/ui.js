@@ -60,6 +60,15 @@ function createTodoDiv(todo) {
   todoDiv.appendChild(todoPriority);
   todoDiv.appendChild(todoCheck);
   todoDiv.appendChild(deleteButton);
+
+  todoCheck.addEventListener("change", () => {
+    if(this.checked) {
+      todo.completed = true;
+    }
+    else {
+      todo.completed = false;
+    }
+  })
 }
 
 function createProjectsDiv() {

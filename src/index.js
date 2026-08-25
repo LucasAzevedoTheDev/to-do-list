@@ -15,8 +15,6 @@ createProjectsDiv();
 createNewButton();
 createDialog();
 
-// fix bug on DOM adding todos to another projects
-
 
 
 
