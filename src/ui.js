@@ -193,6 +193,13 @@ function createDialog() {
 
   buttonsField.appendChild(submitButton);
   buttonsField.appendChild(closeButton);
+
+  closeButton.addEventListener("click", () => {
+    dialog.close();
+    form.reset();
+  });
+
+  
 }
 
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog};
