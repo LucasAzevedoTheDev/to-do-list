@@ -154,7 +154,10 @@ function createDialog() {
   projectInput.id = "project-input";
   projectInput.required = true;
 
-  projectInput.add(defaultPriorityOption);
+  const defaultProjectOption = document.createElement("option");
+  defaultProjectOption.value = "";
+  defaultProjectOption.textContent = "--Please choose an option--";
+  projectInput.add(defaultProjectOption);
 
   projects.forEach(project => {
     const option = new Option(project.name, project.name);
@@ -203,7 +206,7 @@ function createDialog() {
     let currentPriority = document.querySelector("#priority-input").value;
     let currentProject = projects.find(project => project.name === document.querySelector("#project-input").value);
 
-    if(currentTitle !== "" && currentDueDate !== "" && currentProject !== "") {
+    if(currentTitle !== "" && currentDueDate !== "") {
       const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, currentProject);
       createTodoDiv(todo);
 
