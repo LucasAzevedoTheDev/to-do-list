@@ -1,6 +1,6 @@
 import "./styles.css";
 import {deleteTodo, deleteProject} from "./edit.js";
-import {addTodoToProject, projects, priority} from "./todo.js";
+import {addProject, addTodoToProject, projects, priority} from "./todo.js";
 
 const body = document.querySelector("body");
 const containerDiv = document.createElement("div");
@@ -16,10 +16,13 @@ containerDiv.appendChild(dialog);
 let currentProject;
 let projectDiv;
 
-function createProjectsDiv() {
+function createTheDiv() {
   projectDiv = document.createElement("div");
   projectDiv.classList.add("project-div");
   containerDiv.before(projectDiv);
+}
+
+function createProjectsDiv() {
 
   projects.forEach((project) => {
     const projectButtons = document.createElement("button");
@@ -41,9 +44,11 @@ function createContainer() {
   body.appendChild(containerDiv);
   containerDiv.appendChild(todoContainer);
   currentProject = projects[0];
+  createTheDiv();
   createProjectsDiv();
-  createNewButton();
   createDialog();
+  createNewButton();
+  createNewProjectButton();
   createDeleteProjectButton();
 }
 
@@ -105,6 +110,21 @@ function createNewButton() {
 
   newButton.addEventListener("click", () => {
       dialog.showModal();
+  });
+}
+
+function createNewProjectButton() {
+  const newProjectButton = document.createElement("button");
+  newProjectButton.classList.add("new-project-button");
+  newProjectButton.textContent = "New Project";
+  containerDiv.appendChild(newProjectButton);
+
+  newProjectButton.addEventListener("click", () => {
+    const projectName = prompt("Please enter the project name:", "");
+    addProject(projectName);
+    projectDiv.replaceChildren();
+    createProjectsDiv();
+    console.log(projects);
   });
 }
 
