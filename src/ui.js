@@ -104,33 +104,33 @@ function createDialog() {
   form.appendChild(formField);
 
   const titleLabel = document.createElement("label");
-  titleLabel.htmlFor = "title-input"
+  titleLabel.htmlFor = "title-input";
   titleLabel.textContent = "Title:";
 
   const titleInput = document.createElement("input");
-  titleInput.type = "text"
+  titleInput.type = "text";
   titleInput.id = "title-input";
   titleInput.required = true;
 
   const descriptionLabel = document.createElement("label");
-  descriptionLabel.htmlFor = "description-input"
+  descriptionLabel.htmlFor = "description-input";
   descriptionLabel.textContent = "Description:";
 
   const descriptionInput = document.createElement("input");
-  descriptionInput.type = "text"
+  descriptionInput.type = "text";
   descriptionInput.id = "description-input";
 
   const dueDateLabel = document.createElement("label");
-  dueDateLabel.htmlFor = "dueDate-input"
+  dueDateLabel.htmlFor = "dueDate-input";
   dueDateLabel.textContent = "Due:";
 
   const dueDateInput = document.createElement("input");
-  dueDateInput.type = "datetime-local"
+  dueDateInput.type = "datetime-local";
   dueDateInput.id = "dueDate-input";
   dueDateInput.required = true;
 
   const priorityLabel = document.createElement("label");
-  priorityLabel.htmlFor = "priority-input"
+  priorityLabel.htmlFor = "priority-input";
   priorityLabel.textContent = "Priority:";
 
   const priorityInput = document.createElement("select");
@@ -148,7 +148,7 @@ function createDialog() {
   });
 
   const projectLabel = document.createElement("label");
-  projectLabel.htmlFor = "project-input"
+  projectLabel.htmlFor = "project-input";
   projectLabel.textContent = "Project:";
 
   const projectInput = document.createElement("select");
@@ -162,16 +162,33 @@ function createDialog() {
     projectInput.add(option);
   });
 
-  formField.appendChild(titleLabel)
-  formField.appendChild(titleInput)
-  formField.appendChild(descriptionLabel)
-  formField.appendChild(descriptionInput)
-  formField.appendChild(dueDateLabel)
-  formField.appendChild(dueDateInput)
-  formField.appendChild(priorityLabel)
-  formField.appendChild(priorityInput)
-  formField.appendChild(projectLabel)
-  formField.appendChild(projectInput)
+  formField.appendChild(titleLabel);
+  formField.appendChild(titleInput);
+  formField.appendChild(descriptionLabel);
+  formField.appendChild(descriptionInput);
+  formField.appendChild(dueDateLabel);
+  formField.appendChild(dueDateInput);
+  formField.appendChild(priorityLabel);
+  formField.appendChild(priorityInput);
+  formField.appendChild(projectLabel);
+  formField.appendChild(projectInput);
+
+  const buttonsField = document.createElement("div");
+  buttonsField.classList.add("buttons-field");
+  form.appendChild(buttonsField);
+
+  const submitButton = document.createElement("button");
+  submitButton.classList.add("submit-button");
+  submitButton.type = "submit"
+  submitButton.textContent = "Add Todo";
+
+  const closeButton = document.createElement("button");
+  closeButton.classList.add("close-button");
+  closeButton.type = "button";
+  closeButton.textContent = "Cancel";
+
+  buttonsField.appendChild(submitButton);
+  buttonsField.appendChild(closeButton);
 }
 
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog};
