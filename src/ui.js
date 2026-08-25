@@ -140,6 +140,12 @@ function createDialog() {
   const defaultPriorityOption = document.createElement("option");
   defaultPriorityOption.value = "";
   defaultPriorityOption.textContent = "--Please choose an option--";
+  priorityInput.add(defaultPriorityOption);
+
+  priority.forEach(priority => {
+    const option = new Option(priority.text, priority.value);
+    priorityInput.add(option);
+  });
 }
 
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton};
