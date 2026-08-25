@@ -1,5 +1,5 @@
 import "./styles.css";
-import {deleteTodo} from "./edit.js";
+import {deleteTodo, deleteProject} from "./edit.js";
 import {addTodoToProject, projects, priority} from "./todo.js";
 
 const body = document.querySelector("body");
@@ -14,9 +14,10 @@ dialog.classList.add("modal");
 containerDiv.appendChild(dialog);
 
 let currentProject;
+let projectDiv;
 
 function createProjectsDiv() {
-  const projectDiv = document.createElement("div");
+  projectDiv = document.createElement("div");
   projectDiv.classList.add("project-div");
   containerDiv.before(projectDiv);
 
@@ -43,6 +44,7 @@ function createContainer() {
   createProjectsDiv();
   createNewButton();
   createDialog();
+  createDeleteProjectButton();
 }
 
 function createTodoDiv(todo) {
@@ -85,7 +87,7 @@ function createTodoDiv(todo) {
   todoDiv.appendChild(todoCheck);
   todoDiv.appendChild(deleteButton);
 
-  todoCheck.addEventListener("change", () => {
+  todoCheck.addEventListener("change", function() {
     if(this.checked) {
       todo.completed = true;
     }
@@ -103,6 +105,23 @@ function createNewButton() {
 
   newButton.addEventListener("click", () => {
       dialog.showModal();
+  });
+}
+
+function createDeleteProjectButton() {
+  const deleteProjectButton = document.createElement("button");
+  deleteProjectButton.classList.add("delete-project-button");
+  deleteProjectButton.textContent = "Delete Project";
+  containerDiv.appendChild(deleteProjectButton);
+
+  deleteProjectButton.addEventListener("click", () => {
+    deleteProject(currentProject);
+
+    for(let i = 0; i < projectDiv.children.length; i++) {
+      if(projectDiv.children[i].textContent === currentProject.name) {
+        projectDiv.children[i].remove();
+      }
+    }
   });
 }
 
