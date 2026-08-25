@@ -9,6 +9,10 @@ containerDiv.classList.add("container-div");
 const todoContainer = document.createElement("div");
 todoContainer.classList.add("todo-container");
 
+const dialog = document.createElement("dialog");
+dialog.classList.add("modal");
+containerDiv.appendChild(dialog);
+
 function createContainer() {
   body.appendChild(containerDiv);
   containerDiv.appendChild(todoContainer);
@@ -45,7 +49,7 @@ function createTodoDiv(todo) {
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
-  
+  deleteButton.textContent = "Delete";
   deleteButton.addEventListener("click", () => {
     todoDiv.remove();
     deleteTodo(todo);
@@ -86,13 +90,13 @@ function createNewButton() {
   newButton.classList.add("new-button");
   newButton.textContent = "New Todo";
   containerDiv.appendChild(newButton);
+
+  newButton.addEventListener("click", () => {
+      dialog.showModal();
+  });
 }
 
 function createDialog() {
-  const dialog = document.createElement("dialog");
-  dialog.classList.add("modal");
-  containerDiv.appendChild(dialog);
-
   const form = document.createElement("form");
   form.classList.add("form");
   form.action = "";

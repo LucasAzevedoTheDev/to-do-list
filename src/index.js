@@ -1,7 +1,7 @@
 import "./styles.css";
 import {addProject, addTodoToProject, projects, priority} from "./todo.js";
 import {toggleCompleted, deleteTodo, deleteProject} from "./edit.js";
-import {createContainer, createTodoDiv, createProjectsDiv, createNewButton} from "./ui.js";
+import {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog} from "./ui.js";
 
 const defaultProject = addProject("Default");
 const secondProject = addProject("Second");
@@ -12,9 +12,10 @@ createContainer();
 createTodoDiv(todo1);
 createTodoDiv(todo2);
 createProjectsDiv();
+createNewButton();
+createDialog();
 
-// BUILD TODO.DUEDATE LOGIC (EXTERNAL LIBRARY)
-// BUILD TODO.PRIORITY LOGIC
+
 
 
 
