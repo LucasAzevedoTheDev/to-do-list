@@ -146,9 +146,24 @@ function createDialog() {
     const option = new Option(priority.text, priority.value);
     priorityInput.add(option);
   });
+
+  const projectLabel = document.createElement("label");
+  projectLabel.htmlFor = "project-input"
+  projectLabel.textContent = "Project:";
+
+  const projectInput = document.createElement("select");
+  projectInput.id = "project-input";
+  projectInput.required = true;
+
+  projectInput.add(defaultPriorityOption);
+
+  projects.forEach(project => {
+    const option = new Option(project.name, project.name);
+    projectInput.add(option);
+  });
 }
 
-export {createContainer, createTodoDiv, createProjectsDiv, createNewButton};
+export {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog};
 
 
 
