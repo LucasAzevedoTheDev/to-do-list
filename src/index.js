@@ -6,8 +6,8 @@ import {createContainer, createTodoDiv, createProjectsDiv, createNewButton, crea
 const defaultProject = addProject("Default");
 const secondProject = addProject("Second");
 const thirdProject = addProject("Third");
-const todo1 = addTodoToProject("walk", "walk the dog", "08/15", "medium", "no additional notes", defaultProject);
-const todo2 = addTodoToProject("drink", "water", "tomorrow", "max", "no additional notes", defaultProject);
+const todo1 = addTodoToProject("walk", "walk the dog", "08/15", "medium", defaultProject);
+const todo2 = addTodoToProject("drink", "water", "tomorrow", "max", defaultProject);
 createContainer();
 createTodoDiv(todo1);
 createTodoDiv(todo2);

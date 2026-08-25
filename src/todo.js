@@ -8,12 +8,11 @@ let priority = [
 class Todo {
   completed = false;
 
-  constructor(title, description, dueDate, priority, notes, project) {
+  constructor(title, description, dueDate, priority, project) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.notes = notes;
     this.project = project;
   }
 }
@@ -34,8 +33,8 @@ function addProject(name) {
 }
 
 
-function addTodoToProject(title, description, dueDate, priority, notes, project) {
-  const todo = new Todo(title, description, dueDate, priority, notes, project);
+function addTodoToProject(title, description, dueDate, priority, project) {
+  const todo = new Todo(title, description, dueDate, priority, project);
   project.todos.push(todo);
 
   return todo;
