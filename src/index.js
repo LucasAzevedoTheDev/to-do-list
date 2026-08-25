@@ -1,6 +1,5 @@
 import "./styles.css";
 import {addProject, addTodoToProject, projects, priority} from "./todo.js";
-import {toggleCompleted, deleteTodo, deleteProject} from "./edit.js";
 import {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog} from "./ui.js";
 
 const defaultProject = addProject("Default");

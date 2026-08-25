@@ -1,14 +1,5 @@
 import {projects} from "./todo.js";
 
-function toggleCompleted(todo) {
-  if(todo.completed === false) {
-    todo.completed = true;
-  }
-  else {
-    todo.completed = false;
-  }
-}
-
 function deleteTodo(todo) {
   let currentProject = todo.project.todos;
 
@@ -30,4 +21,4 @@ function deleteProject(project) {
   }
 }
 
-export {toggleCompleted, deleteTodo, deleteProject};
+export {deleteTodo, deleteProject};
