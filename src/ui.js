@@ -111,6 +111,23 @@ function createDialog() {
   titleInput.type = "text"
   titleInput.id = "title-input";
   titleInput.required = true;
+
+  const descriptionLabel = document.createElement("label");
+  descriptionLabel.htmlFor = "description-input"
+  descriptionLabel.textContent = "Description";
+
+  const descriptionInput = document.createElement("input");
+  descriptionInput.type = "text"
+  descriptionInput.id = "description-input";
+
+  const dueDateLabel = document.createElement("label");
+  dueDateLabel.htmlFor = "dueDate-input"
+  dueDateLabel.textContent = "Due";
+
+  const dueDateInput = document.createElement("input");
+  dueDateInput.type = "datetime-local"
+  dueDateInput.id = "dueDate-input";
+  
 }
 
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton};
