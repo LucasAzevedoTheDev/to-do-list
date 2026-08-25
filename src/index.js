@@ -1,6 +1,6 @@
 import "./styles.css";
 import {addProject, addTodoToProject, projects, priority} from "./todo.js";
-import {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog} from "./ui.js";
+import {createContainer, createTodoDiv} from "./ui.js";
 
 const defaultProject = addProject("Default");
 const secondProject = addProject("Second");
@@ -10,9 +10,6 @@ const todo2 = addTodoToProject("drink", "water", "tomorrow", "max", defaultProje
 createContainer();
 createTodoDiv(todo1);
 createTodoDiv(todo2);
-createProjectsDiv();
-createNewButton();
-createDialog();
 
 
 

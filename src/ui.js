@@ -15,10 +15,34 @@ containerDiv.appendChild(dialog);
 
 let currentProject;
 
+function createProjectsDiv() {
+  const projectDiv = document.createElement("div");
+  projectDiv.classList.add("project-div");
+  containerDiv.before(projectDiv);
+
+  projects.forEach((project) => {
+    const projectButtons = document.createElement("button");
+    projectButtons.classList.add("project-buttons");
+    projectButtons.textContent = project.name;
+    projectDiv.appendChild(projectButtons);
+
+    projectButtons.addEventListener("click", (event) => {
+      todoContainer.replaceChildren();
+      currentProject = projects.find(project => project.name === event.target.textContent);
+      currentProject.todos.forEach((todo) => {
+        createTodoDiv(todo);
+      }); 
+    });
+  });
+}
+
 function createContainer() {
   body.appendChild(containerDiv);
   containerDiv.appendChild(todoContainer);
   currentProject = projects[0];
+  createProjectsDiv();
+  createNewButton();
+  createDialog();
 }
 
 function createTodoDiv(todo) {
@@ -69,27 +93,6 @@ function createTodoDiv(todo) {
       todo.completed = false;
     }
   })
-}
-
-function createProjectsDiv() {
-  const projectDiv = document.createElement("div");
-  projectDiv.classList.add("project-div");
-  containerDiv.before(projectDiv);
-
-  projects.forEach((project) => {
-    const projectButtons = document.createElement("button");
-    projectButtons.classList.add("project-buttons");
-    projectButtons.textContent = project.name;
-    projectDiv.appendChild(projectButtons);
-
-    projectButtons.addEventListener("click", (event) => {
-      todoContainer.replaceChildren();
-      currentProject = projects.find(project => project.name === event.target.textContent);
-      currentProject.todos.forEach((todo) => {
-        createTodoDiv(todo);
-      }); 
-    });
-  });
 }
 
 function createNewButton() {
@@ -234,7 +237,7 @@ function createDialog() {
   });
 }
 
-export {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog};
+export {createContainer, createTodoDiv};
 
 
 
