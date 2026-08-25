@@ -126,7 +126,6 @@ function createNewProjectButton() {
     createProjectsDiv();
     dialog.replaceChildren();
     createDialog();
-    console.log(projects);
   });
 }
 
