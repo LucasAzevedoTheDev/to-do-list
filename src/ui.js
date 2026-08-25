@@ -94,12 +94,23 @@ function createDialog() {
   containerDiv.appendChild(dialog);
 
   const form = document.createElement("form");
+  form.classList.add("form");
   form.action = "";
   form.method = "dialog";
-  form.classList.add("form");
   dialog.appendChild(form);
 
-  
+  const formField = document.createElement("div");
+  formField.classList.add("form-field");
+  form.appendChild(formField);
+
+  const titleLabel = document.createElement("label");
+  titleLabel.htmlFor = "title-input"
+  titleLabel.textContent = "Title";
+
+  const titleInput = document.createElement("input");
+  titleInput.type = "text"
+  titleInput.id = "title-input";
+  titleInput.required = true;
 }
 
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton};
