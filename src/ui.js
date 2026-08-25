@@ -81,7 +81,14 @@ function createProjectsDiv() {
   });
 }
 
-export {createContainer, createTodoDiv, createProjectsDiv};
+function createNewButton() {
+  const newButton = document.createElement("button");
+  newButton.classList.add("new-button");
+  newButton.textContent = "New Todo";
+  containerDiv.appendChild(newButton);
+}
+
+export {createContainer, createTodoDiv, createProjectsDiv, createNewButton};
 
 
 
