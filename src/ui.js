@@ -209,7 +209,7 @@ function createDialog() {
     let currentPriority = document.querySelector("#priority-input").value;
     let project = projects.find(project => project.name === document.querySelector("#project-input").value);
 
-    if(currentTitle !== "" && currentDueDate !== "") {
+    if(currentTitle !== "" && currentDueDate !== "" && currentPriority !== undefined && project !== undefined) {
       const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, project);
       
       if(currentProject === project) {
