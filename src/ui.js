@@ -120,6 +120,8 @@ function createDeleteProjectButton() {
     for(let i = 0; i < projectDiv.children.length; i++) {
       if(projectDiv.children[i].textContent === currentProject.name) {
         projectDiv.children[i].remove();
+        dialog.replaceChildren();
+        createDialog();
       }
     }
   });
