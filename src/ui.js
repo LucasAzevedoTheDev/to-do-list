@@ -13,9 +13,12 @@ const dialog = document.createElement("dialog");
 dialog.classList.add("modal");
 containerDiv.appendChild(dialog);
 
+let currentProject;
+
 function createContainer() {
   body.appendChild(containerDiv);
   containerDiv.appendChild(todoContainer);
+  currentProject = projects[0];
 }
 
 function createTodoDiv(todo) {
@@ -72,7 +75,7 @@ function createProjectsDiv() {
 
     projectButtons.addEventListener("click", (event) => {
       todoContainer.replaceChildren();
-      let currentProject = projects.find(project => project.name === event.target.textContent);
+      currentProject = projects.find(project => project.name === event.target.textContent);
       currentProject.todos.forEach((todo) => {
         createTodoDiv(todo);
       }); 
@@ -204,11 +207,14 @@ function createDialog() {
     let currentDescription = document.querySelector("#description-input").value;
     let currentDueDate = document.querySelector("#dueDate-input").value;
     let currentPriority = document.querySelector("#priority-input").value;
-    let currentProject = projects.find(project => project.name === document.querySelector("#project-input").value);
+    let project = projects.find(project => project.name === document.querySelector("#project-input").value);
 
     if(currentTitle !== "" && currentDueDate !== "") {
-      const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, currentProject);
-      createTodoDiv(todo);
+      const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, project);
+      
+      if(currentProject === project) {
+        createTodoDiv(todo);
+      }
 
       form.reset();
       dialog.close();
