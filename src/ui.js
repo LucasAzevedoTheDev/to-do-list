@@ -1,6 +1,6 @@
 import "./styles.css";
 import {deleteTodo} from "./edit.js";
-import {projects, priority} from "./todo.js";
+import {addTodoToProject, projects, priority} from "./todo.js";
 
 const body = document.querySelector("body");
 const containerDiv = document.createElement("div");
@@ -194,9 +194,26 @@ function createDialog() {
     form.reset();
   });
 
-  submitButton.addEventListener("click", () => {
+  submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
 
-  })
+    let currentTitle = document.querySelector("#title-input").value;
+    let currentDescription = document.querySelector("#description-input").value;
+    let currentDueDate = document.querySelector("#dueDate-input").value;
+    let currentPriority = document.querySelector("#priority-input").value;
+    let currentProject = projects.find(project => project.name === document.querySelector("#project-input").value);
+
+    if(currentTitle !== "" && currentDueDate !== "" && currentProject !== "") {
+      const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, currentProject);
+      createTodoDiv(todo);
+
+      form.reset();
+      dialog.close();
+    }
+    else {
+      alert("Please fill out all the fields.")
+    }
+  });
 }
 
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog};
