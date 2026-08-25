@@ -88,6 +88,14 @@ function createNewButton() {
   containerDiv.appendChild(newButton);
 }
 
+function createDialog() {
+  const dialog = document.createElement("dialog");
+  dialog.classList.add("modal");
+  containerDiv.appendChild(dialog);
+
+  
+}
+
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton};
 
 
