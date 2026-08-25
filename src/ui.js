@@ -161,6 +161,17 @@ function createDialog() {
     const option = new Option(project.name, project.name);
     projectInput.add(option);
   });
+
+  formField.appendChild(titleLabel)
+  formField.appendChild(titleInput)
+  formField.appendChild(descriptionLabel)
+  formField.appendChild(descriptionInput)
+  formField.appendChild(dueDateLabel)
+  formField.appendChild(dueDateInput)
+  formField.appendChild(priorityLabel)
+  formField.appendChild(priorityInput)
+  formField.appendChild(projectLabel)
+  formField.appendChild(projectInput)
 }
 
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton, createDialog};
