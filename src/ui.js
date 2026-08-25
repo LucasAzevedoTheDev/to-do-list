@@ -1,6 +1,6 @@
 import "./styles.css";
 import {deleteTodo} from "./edit.js";
-import {projects} from "./todo.js";
+import {projects, priority} from "./todo.js";
 
 const body = document.querySelector("body");
 const containerDiv = document.createElement("div");
@@ -105,7 +105,7 @@ function createDialog() {
 
   const titleLabel = document.createElement("label");
   titleLabel.htmlFor = "title-input"
-  titleLabel.textContent = "Title";
+  titleLabel.textContent = "Title:";
 
   const titleInput = document.createElement("input");
   titleInput.type = "text"
@@ -114,7 +114,7 @@ function createDialog() {
 
   const descriptionLabel = document.createElement("label");
   descriptionLabel.htmlFor = "description-input"
-  descriptionLabel.textContent = "Description";
+  descriptionLabel.textContent = "Description:";
 
   const descriptionInput = document.createElement("input");
   descriptionInput.type = "text"
@@ -122,12 +122,24 @@ function createDialog() {
 
   const dueDateLabel = document.createElement("label");
   dueDateLabel.htmlFor = "dueDate-input"
-  dueDateLabel.textContent = "Due";
+  dueDateLabel.textContent = "Due:";
 
   const dueDateInput = document.createElement("input");
   dueDateInput.type = "datetime-local"
   dueDateInput.id = "dueDate-input";
-  
+  dueDateInput.required = true;
+
+  const priorityLabel = document.createElement("label");
+  priorityLabel.htmlFor = "priority-input"
+  priorityLabel.textContent = "Priority:";
+
+  const priorityInput = document.createElement("select");
+  priorityInput.id = "priority-input";
+  priorityInput.required = true;
+
+  const defaultPriorityOption = document.createElement("option");
+  defaultPriorityOption.value = "";
+  defaultPriorityOption.textContent = "--Please choose an option--";
 }
 
 export {createContainer, createTodoDiv, createProjectsDiv, createNewButton};

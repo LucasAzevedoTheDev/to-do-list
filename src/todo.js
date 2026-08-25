@@ -1,5 +1,5 @@
 let projects = [];
-let priority = [1, 2, 3];
+let priority = ["Low", "Medium", "High"];
 
 class Todo {
   completed = false;
