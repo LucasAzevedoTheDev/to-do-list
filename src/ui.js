@@ -124,6 +124,8 @@ function createNewProjectButton() {
     addProject(projectName);
     projectDiv.replaceChildren();
     createProjectsDiv();
+    dialog.replaceChildren();
+    createDialog();
     console.log(projects);
   });
 }
