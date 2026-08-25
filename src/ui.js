@@ -93,6 +93,12 @@ function createDialog() {
   dialog.classList.add("modal");
   containerDiv.appendChild(dialog);
 
+  const form = document.createElement("form");
+  form.action = "";
+  form.method = "dialog";
+  form.classList.add("form");
+  dialog.appendChild(form);
+
   
 }
 
