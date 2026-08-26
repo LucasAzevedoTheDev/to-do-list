@@ -1,7 +1,7 @@
 import "./styles.css";
 import {deleteTodo, deleteProject} from "./edit.js";
 import {addProject, addTodoToProject, projects, priority} from "./todo.js";
-import {parseISO} from "date-fns";
+import {parseISO, format, isToday, isThisYear} from "date-fns";
 
 const body = document.querySelector("body");
 const containerDiv = document.createElement("div");
@@ -260,18 +260,16 @@ function createDialog() {
 
     let currentTitle = document.querySelector("#title-input").value;
     let currentDescription = document.querySelector("#description-input").value;
-    let currentDueDate = document.querySelector("#dueDate-input").value;
+    let raw = document.querySelector("#dueDate-input").value;
+    let currentDueDate = parseISO(raw);
     let currentPriority = document.querySelector("#priority-input").value;
     let project = projects.find(project => project.name === document.querySelector("#project-input").value);
-
-    let raw = currentDueDate;
-    const date = parseISO(raw);
-    console.log(date);
 
     if(currentTitle !== "" && currentDueDate !== "" && currentPriority !== undefined && project !== undefined) {
       const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, project);
       
       if(currentProject === project) {
+
         createTodoDiv(todo);
       }
 
@@ -287,5 +285,17 @@ function createDialog() {
 export {createContainer, createTodoDiv};
 
 
+function formatDate(date) {
+  let date = parseISO(date);
 
+  if(isToday(date)) {
+    return format(date, "'Today,' HH:mm a");
+  }
+  else if(isThisYear(date)) {
+    return format(date, "dd 'of' MMM, HH:mm a"); 
+  }
+  else {
+    return format(date, "dd/MM/yy, HH:mm a")
+  }
+}
 // organize todo by date
