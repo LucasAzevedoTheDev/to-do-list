@@ -1,6 +1,7 @@
 import "./styles.css";
 import {deleteTodo, deleteProject} from "./edit.js";
 import {addProject, addTodoToProject, projects, priority} from "./todo.js";
+import {parseISO} from "date-fns";
 
 const body = document.querySelector("body");
 const containerDiv = document.createElement("div");
@@ -263,6 +264,10 @@ function createDialog() {
     let currentPriority = document.querySelector("#priority-input").value;
     let project = projects.find(project => project.name === document.querySelector("#project-input").value);
 
+    let raw = currentDueDate;
+    const date = parseISO(raw);
+    console.log(date);
+
     if(currentTitle !== "" && currentDueDate !== "" && currentPriority !== undefined && project !== undefined) {
       const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, project);
       
@@ -283,3 +288,4 @@ export {createContainer, createTodoDiv};
 
 
 
+// organize todo by date
