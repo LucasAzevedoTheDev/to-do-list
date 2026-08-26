@@ -1,5 +1,5 @@
 import {projects} from "./todo.js";
-
+import {parseISO, format, isToday, isThisYear} from "date-fns";
 function deleteTodo(todo) {
   let currentProject = todo.project.todos;
 
@@ -21,4 +21,18 @@ function deleteProject(project) {
   }
 }
 
-export {deleteTodo, deleteProject};
+function formatDate(date) {
+  let properDate = parseISO(date);
+
+  if(isToday(properDate)) {
+    return format(properDate, "'Today,' HH:mm a");
+  }
+  else if(isThisYear(properDate)) {
+    return format(properDate, "MMM dd, HH:mm a"); 
+  }
+  else {
+    return format(properDate, "MM/dd/yy, HH:mm a")
+  }
+}
+
+export {deleteTodo, deleteProject, formatDate}; 
