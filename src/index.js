@@ -12,6 +12,7 @@ createTodoDiv(todo1);
 createTodoDiv(todo2);
 console.log(defaultProject);
 
+// enable to sort todo divs by the dates
 
 
 
