@@ -73,7 +73,7 @@ function createTodoDiv(todo) {
 
   const todoPriority = document.createElement("p");
   todoPriority.classList.add("todo-priority");
-  todoPriority.textContent = todo.priority;
+  todoPriority.textContent = `${todo.priority} priority`;
 
   const todoCheck = document.createElement("input");
   todoCheck.type = "checkbox";
@@ -88,11 +88,11 @@ function createTodoDiv(todo) {
   });
 
   todoDiv.appendChild(todoTitle);
-  todoDiv.appendChild(todoDescription);
+  // todoDiv.appendChild(todoDescription);
   todoDiv.appendChild(todoDate);
   todoDiv.appendChild(todoPriority);
   todoDiv.appendChild(todoCheck);
-  todoDiv.appendChild(deleteButton);
+  // todoDiv.appendChild(deleteButton);
 
   addPriorityColor(todo, todoDiv);
 
@@ -125,7 +125,7 @@ function createNewProjectButton() {
 
   newProjectButton.addEventListener("click", () => {
     const projectName = prompt("Please enter the project name:", "");
-    
+
     if(projectName === "") {
       alert("Please enter a name.");
     }
