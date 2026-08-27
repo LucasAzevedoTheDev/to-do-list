@@ -1,5 +1,5 @@
 import {projects} from "./todo.js";
-import {parseISO, format, isToday, isThisYear} from "date-fns";
+import {parseISO, format, isToday, isThisYear, compareAsc} from "date-fns";
 function deleteTodo(todo) {
   let currentProject = todo.project.todos;
 
@@ -33,6 +33,10 @@ function formatDate(date) {
   else {
     return format(properDate, "MM/dd/yy, HH:mm a")
   }
+}
+
+function sortByDate(array) {
+  
 }
 
 export {deleteTodo, deleteProject, formatDate}; 
