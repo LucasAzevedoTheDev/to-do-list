@@ -136,8 +136,13 @@ function createDeleteProjectButton() {
   containerDiv.appendChild(deleteProjectButton);
 
   deleteProjectButton.addEventListener("click", () => {
-    deleteProject(currentProject);
 
+    if(projects.length === 1) {
+      alert("Can't delete the only project available.");
+      return;
+    }
+
+    deleteProject(currentProject);
     for(let i = 0; i < projectDiv.children.length; i++) {
       if(projectDiv.children[i].textContent === currentProject.name) {
         projectDiv.children[i].remove();
