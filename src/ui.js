@@ -59,6 +59,15 @@ function createTodoDiv(todo) {
   todoDiv.classList.add("todo-div");
   todoContainer.appendChild(todoDiv);
 
+  const checkboxDiv = document.createElement("div");
+  checkboxDiv.classList.add("checkbox-div");
+
+  const titleDiv = document.createElement("div");
+  titleDiv.classList.add("title-div");
+
+  todoDiv.appendChild(checkboxDiv);
+  todoDiv.appendChild(titleDiv);
+
   const todoTitle = document.createElement("p");
   todoTitle.classList.add("todo-title");
   todoTitle.textContent = todo.title;
@@ -87,11 +96,11 @@ function createTodoDiv(todo) {
     deleteTodo(todo);
   });
 
-  todoDiv.appendChild(todoTitle);
+  checkboxDiv.appendChild(todoCheck);
+  titleDiv.appendChild(todoTitle);
   // todoDiv.appendChild(todoDescription);
-  todoDiv.appendChild(todoDate);
-  todoDiv.appendChild(todoPriority);
-  todoDiv.appendChild(todoCheck);
+  titleDiv.appendChild(todoDate);
+  // todoDiv.appendChild(todoPriority);
   // todoDiv.appendChild(deleteButton);
 
   addPriorityColor(todo, todoDiv);
