@@ -13,6 +13,9 @@ createTodoDiv(todo2);
 console.log(defaultProject);
 
 // enable to sort todo divs by the dates
+// change the div view to see only title, description and duedate
+// change todo div colors based on the priority
+// enable the div to expand, see and edit the details
 
 
 
