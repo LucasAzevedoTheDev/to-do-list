@@ -1,5 +1,3 @@
-import {parseISO} from "date-fns";
-
 let projects = [];
 let priority = [
   {text: "Low", value: "low"},

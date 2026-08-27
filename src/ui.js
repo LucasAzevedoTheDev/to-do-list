@@ -1,5 +1,5 @@
 import "./styles.css";
-import {deleteTodo, deleteProject, formatDate} from "./edit.js";
+import {deleteTodo, deleteProject, formatDate, sortByDate} from "./edit.js";
 import {addProject, addTodoToProject, projects, priority} from "./todo.js";
 
 const body = document.querySelector("body");
@@ -33,7 +33,8 @@ function createProjectsDiv() {
     projectButtons.addEventListener("click", (event) => {
       todoContainer.replaceChildren();
       currentProject = projects.find(project => project.name === event.target.textContent);
-      currentProject.todos.forEach((todo) => {
+      let sorted = sortByDate(currentProject);
+      sorted.forEach((todo) => {
         createTodoDiv(todo);
       }); 
     });

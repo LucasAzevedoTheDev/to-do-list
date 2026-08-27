@@ -36,7 +36,8 @@ function formatDate(date) {
 }
 
 function sortByDate(array) {
-  
+  let sorted = array.todos.sort((a, b) => compareAsc(a.dueDate, b.dueDate));
+  return sorted;
 }
 
-export {deleteTodo, deleteProject, formatDate}; 
+export {deleteTodo, deleteProject, formatDate, sortByDate}; 
