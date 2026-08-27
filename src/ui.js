@@ -37,6 +37,7 @@ function createProjectsDiv() {
       sorted.forEach((todo) => {
         createTodoDiv(todo);
       }); 
+
     });
   });
 }
@@ -280,7 +281,7 @@ function createDialog() {
         let sorted = sortByDate(project);
         sorted.forEach((todo) => {
           createTodoDiv(todo);
-          console.log(todo); 
+          console.log(todo);
         }); 
       }
       form.reset();
