@@ -272,7 +272,7 @@ function createDialog() {
 
     if(currentTitle !== "" && currentDueDate !== "" && currentPriority !== undefined && project !== undefined) {
       const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, project);
-      
+      console.log(todo);
       if(currentProject === project) {
       todoContainer.replaceChildren();
       let sorted = sortByDate(project);

@@ -40,4 +40,16 @@ function sortByDate(project) {
   return sorted;
 }
 
-export {deleteTodo, deleteProject, formatDate, sortByDate}; 
+function addPriorityColor(todo) {
+  if(todo.priority === "low") {
+    todo.classList.add("low-priority");
+  }
+  else if(todo.priority === "medium") {
+    todo.classList.add("medium-priority");
+  }
+  else {
+    todo.classList.add("high-priority");
+  }
+}
+
+export {deleteTodo, deleteProject, formatDate, sortByDate, addPriorityColor}; 
