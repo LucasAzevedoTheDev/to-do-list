@@ -13,7 +13,6 @@ createTodoDiv(todo2);
 const todo3 = addTodoToProject("test 3", "bliblibli", formatDate("2026-12-11T16:35"), "high", defaultProject);
 createTodoDiv(todo3);
 
-// change the div view to see only title, description and duedate
 // enable the div to expand, see and edit the details
 
 

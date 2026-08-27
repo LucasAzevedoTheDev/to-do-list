@@ -28,8 +28,16 @@ body {
   width: 90%;
   height: 20%;
   padding: 5px;
+  padding-left: 25px;
   display: flex;
   align-items: center;
+  gap: 30px;
+  cursor: pointer;
+  transition: background-color 0.35s ease;
+}
+
+.todo-div:hover {
+  background-color: #383835;
 }
 
 .todo-container {
@@ -91,4 +99,5 @@ button {
 
 input[type="checkbox"] {
   accent-color: #c3c2b7;
+  cursor: pointer;
 }
