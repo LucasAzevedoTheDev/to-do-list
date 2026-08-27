@@ -125,11 +125,20 @@ function createNewProjectButton() {
 
   newProjectButton.addEventListener("click", () => {
     const projectName = prompt("Please enter the project name:", "");
-    addProject(projectName);
-    projectDiv.replaceChildren();
-    createProjectsDiv();
-    dialog.replaceChildren();
-    createDialog();
+    
+    if(projectName === "") {
+      alert("Please enter a name.");
+    }
+    else if(projectName === null) {
+      return;
+    }
+    else {
+      addProject(projectName);
+      projectDiv.replaceChildren();
+      createProjectsDiv();
+      dialog.replaceChildren();
+      createDialog();
+    }
   });
 }
 
