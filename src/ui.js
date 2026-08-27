@@ -274,7 +274,11 @@ function createDialog() {
       const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, project);
       
       if(currentProject === project) {
+      todoContainer.replaceChildren();
+      let sorted = sortByDate(project);
+      sorted.forEach((todo) => {
         createTodoDiv(todo);
+      }); 
       }
 
       form.reset();

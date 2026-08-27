@@ -35,8 +35,8 @@ function formatDate(date) {
   }
 }
 
-function sortByDate(array) {
-  let sorted = array.todos.sort((a, b) => compareAsc(a.dueDate, b.dueDate));
+function sortByDate(project) {
+  let sorted = project.todos.sort((a, b) => compareAsc(a.dueDate, b.dueDate));
   return sorted;
 }
 
