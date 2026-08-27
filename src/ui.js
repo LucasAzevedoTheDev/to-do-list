@@ -262,7 +262,7 @@ function createDialog() {
 
   submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-
+    console.log(projects)
     let currentTitle = document.querySelector("#title-input").value;
     let currentDescription = document.querySelector("#description-input").value;
     let raw = document.querySelector("#dueDate-input").value;
@@ -274,7 +274,6 @@ function createDialog() {
       const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, project);
       
       if(currentProject === project) {
-
         createTodoDiv(todo);
       }
 
@@ -288,7 +287,3 @@ function createDialog() {
 }
 
 export {createContainer, createTodoDiv};
-
-
-
-// organize todo by date
