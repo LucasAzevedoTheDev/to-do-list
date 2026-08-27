@@ -1,5 +1,5 @@
 import "./styles.css";
-import {deleteTodo, deleteProject, formatDate, sortByDate} from "./edit.js";
+import {deleteTodo, deleteProject, formatDate, sortByDate, addPriorityColor} from "./edit.js";
 import {addProject, addTodoToProject, projects, priority} from "./todo.js";
 
 const body = document.querySelector("body");
@@ -93,6 +93,8 @@ function createTodoDiv(todo) {
   todoDiv.appendChild(todoCheck);
   todoDiv.appendChild(deleteButton);
 
+  addPriorityColor(todo, todoDiv);
+
   todoCheck.addEventListener("change", function() {
     if(this.checked) {
       todo.completed = true;
@@ -100,7 +102,7 @@ function createTodoDiv(todo) {
     else {
       todo.completed = false;
     }
-  })
+  });
 }
 
 function createNewButton() {
@@ -262,7 +264,7 @@ function createDialog() {
 
   submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log(projects)
+
     let currentTitle = document.querySelector("#title-input").value;
     let currentDescription = document.querySelector("#description-input").value;
     let raw = document.querySelector("#dueDate-input").value;
@@ -272,15 +274,15 @@ function createDialog() {
 
     if(currentTitle !== "" && currentDueDate !== "" && currentPriority !== undefined && project !== undefined) {
       const todo = addTodoToProject(currentTitle, currentDescription, currentDueDate, currentPriority, project);
-      console.log(todo);
-      if(currentProject === project) {
-      todoContainer.replaceChildren();
-      let sorted = sortByDate(project);
-      sorted.forEach((todo) => {
-        createTodoDiv(todo);
-      }); 
-      }
 
+      if(currentProject === project) {
+        todoContainer.replaceChildren();
+        let sorted = sortByDate(project);
+        sorted.forEach((todo) => {
+          createTodoDiv(todo);
+          console.log(todo); 
+        }); 
+      }
       form.reset();
       dialog.close();
     }

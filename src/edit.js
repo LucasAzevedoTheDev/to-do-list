@@ -40,15 +40,15 @@ function sortByDate(project) {
   return sorted;
 }
 
-function addPriorityColor(todo) {
+function addPriorityColor(todo, div) {
   if(todo.priority === "low") {
-    todo.classList.add("low-priority");
+    div.classList.add("low-priority");
   }
   else if(todo.priority === "medium") {
-    todo.classList.add("medium-priority");
+    div.classList.add("medium-priority");
   }
-  else {
-    todo.classList.add("high-priority");
+  else if(todo.priority === "high") {
+    div.classList.add("high-priority");
   }
 }
 
