@@ -117,6 +117,14 @@ function createTodoDiv(todo) {
       todo.completed = false;
     }
   });
+  // FIX BUG HERE 
+  todoDiv.addEventListener("click", function() {
+    todoDialog.showModal();
+    todoDialog.appendChild(todoTitle);
+    todoDialog.appendChild(todoDescription);
+    todoDialog.appendChild(todoDate);
+    todoDialog.appendChild(todoPriority);
+  })
 }
 
 function createNewButton() {
@@ -313,10 +321,6 @@ function createDialog() {
       alert("Please fill out all the fields.")
     }
   });
-}
-
-function expandTodo() {
-
 }
 
 export {createContainer, createTodoDiv};
