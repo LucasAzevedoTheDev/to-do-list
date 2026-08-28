@@ -13,6 +13,10 @@ const dialog = document.createElement("dialog");
 dialog.classList.add("modal");
 containerDiv.appendChild(dialog);
 
+const todoDialog = document.createElement("dialog");
+todoDialog.classList.add("modal");
+containerDiv.appendChild(todoDialog);
+
 let currentProject;
 let projectDiv;
 
@@ -309,6 +313,10 @@ function createDialog() {
       alert("Please fill out all the fields.")
     }
   });
+}
+
+function expandTodo() {
+
 }
 
 export {createContainer, createTodoDiv};
