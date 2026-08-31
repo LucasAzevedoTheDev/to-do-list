@@ -25,13 +25,13 @@ function formatDate(date) {
   let properDate = parseISO(date);
 
   if(isToday(properDate)) {
-    return format(properDate, "'Today,' HH:mm a");
+    return format(properDate, "'Today,' HH:mm");
   }
   else if(isThisYear(properDate)) {
-    return format(properDate, "MMM dd, HH:mm a"); 
+    return format(properDate, "MMM dd, HH:mm"); 
   }
   else {
-    return format(properDate, "MM/dd/yy, HH:mm a")
+    return format(properDate, "MM/dd/yy, HH:mm")
   }
 }
 
