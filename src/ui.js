@@ -122,7 +122,8 @@ function createTodoDiv(todo) {
   const closeModalButton = document.createElement("button");
   closeModalButton.classList.add("modal-button");
   closeModalButton.textContent = "Close";
-  
+  closeModalButton.addEventListener("click", () => todoDialog.close());
+
   todoDiv.addEventListener("click", () => {
     todoDialog.showModal();
     todoDialog.appendChild(todoTitleClone);
