@@ -102,11 +102,8 @@ function createTodoDiv(todo) {
 
   checkboxDiv.appendChild(todoCheck);
   titleDiv.appendChild(todoTitle);
-  // todoDiv.appendChild(todoDescription);
   titleDiv.appendChild(todoDate);
-  // todoDiv.appendChild(todoPriority);
-  // todoDiv.appendChild(deleteButton);
-
+  todoDiv.appendChild(deleteButton);
   addPriorityColor(todo, todoDiv);
 
   todoCheck.addEventListener("change", function() {
@@ -117,14 +114,17 @@ function createTodoDiv(todo) {
       todo.completed = false;
     }
   });
-  // FIX BUG HERE 
+
+  const todoTitleClone = todoTitle.cloneNode(true);
+  const todoDateClone = todoDate.cloneNode(true);
+ 
   todoDiv.addEventListener("click", function() {
     todoDialog.showModal();
-    todoDialog.appendChild(todoTitle);
+    todoDialog.appendChild(todoTitleClone);
     todoDialog.appendChild(todoDescription);
-    todoDialog.appendChild(todoDate);
+    todoDialog.appendChild(todoDateClone);
     todoDialog.appendChild(todoPriority);
-  })
+  });
 }
 
 function createNewButton() {
@@ -311,7 +311,6 @@ function createDialog() {
         let sorted = sortByDate(project);
         sorted.forEach((todo) => {
           createTodoDiv(todo);
-          console.log(todo);
         }); 
       }
       form.reset();
