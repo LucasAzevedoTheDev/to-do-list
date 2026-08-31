@@ -95,7 +95,8 @@ function createTodoDiv(todo) {
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
   deleteButton.textContent = "Delete";
-  deleteButton.addEventListener("click", () => {
+  deleteButton.addEventListener("click", (event) => {
+    event.stopPropagation(); 
     todoDiv.remove();
     deleteTodo(todo);
   });
@@ -106,7 +107,8 @@ function createTodoDiv(todo) {
   todoDiv.appendChild(deleteButton);
   addPriorityColor(todo, todoDiv);
 
-  todoCheck.addEventListener("change", function() {
+  todoCheck.addEventListener("click", function(event) {
+    event.stopPropagation(); 
     if(this.checked) {
       todo.completed = true;
     }
@@ -118,7 +120,7 @@ function createTodoDiv(todo) {
   const todoTitleClone = todoTitle.cloneNode(true);
   const todoDateClone = todoDate.cloneNode(true);
  
-  todoDiv.addEventListener("click", function() {
+  todoDiv.addEventListener("click", () => {
     todoDialog.showModal();
     todoDialog.appendChild(todoTitleClone);
     todoDialog.appendChild(todoDescription);
