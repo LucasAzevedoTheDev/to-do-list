@@ -124,13 +124,18 @@ function createTodoDiv(todo) {
   const closeModalButton = document.createElement("button");
   closeModalButton.classList.add("modal-button");
   closeModalButton.textContent = "Close";
-  closeModalButton.addEventListener("click", () => todoDialog.close());
+
+  closeModalButton.addEventListener("click", () => {
+    todoDialog.close()
+    todoDialog.replaceChildren();
+  });
 
   const editTodoButton = document.createElement("button");
   editTodoButton.classList.add("modal-button");
   editTodoButton.textContent = "Edit";
 
   editTodoButton.addEventListener("click", function() {
+    todoDialog.appendChild(saveEditButton);
     const originalTitle = todoTitle.textContent;
     const originalDescription = todoDescription.textContent;
 
@@ -139,13 +144,17 @@ function createTodoDiv(todo) {
     todoDateClone.outerHTML = `<input type='datetime-local' value='${todo.dueDate}'></input>`;
   });
 
-// transform the p into input with outerHTML
-// click the ok button
-// store the new value on the todo
-// store the date value
-// store the priority value
-// set the input value to the p text content
-// transform the input into p back
+  const saveEditButton = document.createElement("button");
+  saveEditButton.classList.add("modal-button");
+  saveEditButton.textContent = "Save";
+
+  saveEditButton.addEventListener("click", function() {
+    todoDialog.close();
+  });
+  // click the ok button
+  // store the new value on the todo
+  // set the input value to the p text content
+  // transform the input into p back
 
   todoDiv.addEventListener("click", () => {
     todoDialog.showModal();
