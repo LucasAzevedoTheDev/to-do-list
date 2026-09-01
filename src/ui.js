@@ -12,7 +12,7 @@ todoContainer.classList.add("todo-container");
 const dialog = document.createElement("dialog");
 dialog.classList.add("modal");
 containerDiv.appendChild(dialog);
-
+  
 const todoDialog = document.createElement("dialog");
 todoDialog.classList.add("modal");
 containerDiv.appendChild(todoDialog);
@@ -338,5 +338,13 @@ function createDialog() {
     }
   });
 }
+
+
+// click the edit button (line 133)
+// transform the p into input with outerHTML
+// click the ok button
+// store the new value on the todo
+// set the input value to the p text content
+// transform the input into p back
 
 export {createContainer, createTodoDiv};
