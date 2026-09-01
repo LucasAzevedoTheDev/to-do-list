@@ -130,15 +130,16 @@ function createTodoDiv(todo) {
   editTodoButton.textContent = "Edit";
 
   editTodoButton.addEventListener("click", function() {
-    
     const originalTitle = todoTitle.textContent;
-    todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'</input>`
+    const originalDescription = todoDescription.textContent;
+    todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'></input>`;
+    todoDescription.outerHTML = `<input type='text' value ='${originalDescription}'></input>`;
   });
 
-// click the edit button (line 133)
 // transform the p into input with outerHTML
 // click the ok button
 // store the new value on the todo
+// store the date value
 // set the input value to the p text content
 // transform the input into p back
 
