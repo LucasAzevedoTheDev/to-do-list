@@ -129,9 +129,18 @@ function createTodoDiv(todo) {
   editTodoButton.classList.add("modal-button");
   editTodoButton.textContent = "Edit";
 
-  editTodoButton.addEventListener("click", () => {
-    // 
+  editTodoButton.addEventListener("click", function() {
+    
+    const originalTitle = todoTitle.textContent;
+    todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'</input>`
   });
+
+// click the edit button (line 133)
+// transform the p into input with outerHTML
+// click the ok button
+// store the new value on the todo
+// set the input value to the p text content
+// transform the input into p back
 
   todoDiv.addEventListener("click", () => {
     todoDialog.showModal();
@@ -338,13 +347,5 @@ function createDialog() {
     }
   });
 }
-
-
-// click the edit button (line 133)
-// transform the p into input with outerHTML
-// click the ok button
-// store the new value on the todo
-// set the input value to the p text content
-// transform the input into p back
 
 export {createContainer, createTodoDiv};
