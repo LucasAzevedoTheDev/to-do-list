@@ -119,10 +119,19 @@ function createTodoDiv(todo) {
 
   const todoTitleClone = todoTitle.cloneNode(true);
   const todoDateClone = todoDate.cloneNode(true);
+
   const closeModalButton = document.createElement("button");
   closeModalButton.classList.add("modal-button");
   closeModalButton.textContent = "Close";
   closeModalButton.addEventListener("click", () => todoDialog.close());
+
+  const editTodoButton = document.createElement("button");
+  editTodoButton.classList.add("modal-button");
+  editTodoButton.textContent = "Edit";
+
+  editTodoButton.addEventListener("click", () => {
+    // 
+  });
 
   todoDiv.addEventListener("click", () => {
     todoDialog.showModal();
@@ -131,6 +140,7 @@ function createTodoDiv(todo) {
     todoDialog.appendChild(todoDateClone);
     todoDialog.appendChild(todoPriority);
     todoDialog.appendChild(closeModalButton);
+    todoDialog.appendChild(editTodoButton);
   });
 }
 
