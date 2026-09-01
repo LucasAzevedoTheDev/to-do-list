@@ -36,7 +36,7 @@ function formatDate(date) {
 }
 
 function sortByDate(project) {
-  let sorted = project.todos.sort((a, b) => compareAsc(a.dueDate, b.dueDate));
+  let sorted = project.todos.sort((a, b) => compareAsc(parseISO(a.dueDate), parseISO(b.dueDate)));
   return sorted;
 }
 
