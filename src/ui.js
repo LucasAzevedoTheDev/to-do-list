@@ -20,7 +20,6 @@ containerDiv.appendChild(todoDialog);
 
 let currentProject;
 let projectDiv;
-let raw;
 
 function createTheDiv() {
   projectDiv = document.createElement("div");
@@ -84,7 +83,7 @@ function createTodoDiv(todo) {
 
   const todoDate = document.createElement("p");
   todoDate.classList.add("todo-date");
-  todoDate.textContent = todo.dueDate;
+  todoDate.textContent = formatDate(todo.dueDate);
 
   const todoPriority = document.createElement("p");
   todoPriority.classList.add("todo-priority");
@@ -137,13 +136,14 @@ function createTodoDiv(todo) {
 
     todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'></input>`;
     todoDescription.outerHTML = `<input type='text' value='${originalDescription}'></input>`;
-    todoDateClone.outerHTML = `<input type='datetime-local' value='${raw}'></input>`;
+    todoDateClone.outerHTML = `<input type='datetime-local' value='${todo.dueDate}'></input>`;
   });
 
 // transform the p into input with outerHTML
 // click the ok button
 // store the new value on the todo
 // store the date value
+// store the priority value
 // set the input value to the p text content
 // transform the input into p back
 
@@ -329,8 +329,7 @@ function createDialog() {
 
     let currentTitle = document.querySelector("#title-input").value;
     let currentDescription = document.querySelector("#description-input").value;
-    raw = document.querySelector("#dueDate-input").value;
-    let currentDueDate = formatDate(raw);
+    let currentDueDate = document.querySelector("#dueDate-input").value;
     let currentPriority = document.querySelector("#priority-input").value;
     let project = projects.find(project => project.name === document.querySelector("#project-input").value);
 
