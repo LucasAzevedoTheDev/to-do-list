@@ -1,6 +1,7 @@
 import "./styles.css";
 import {deleteTodo, deleteProject, formatDate, sortByDate, addPriorityColor} from "./edit.js";
 import {addProject, addTodoToProject, projects, priority} from "./todo.js";
+import {format} from "date-fns";
 
 const body = document.querySelector("body");
 const containerDiv = document.createElement("div");
@@ -19,6 +20,7 @@ containerDiv.appendChild(todoDialog);
 
 let currentProject;
 let projectDiv;
+let raw;
 
 function createTheDiv() {
   projectDiv = document.createElement("div");
@@ -132,8 +134,10 @@ function createTodoDiv(todo) {
   editTodoButton.addEventListener("click", function() {
     const originalTitle = todoTitle.textContent;
     const originalDescription = todoDescription.textContent;
+
     todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'></input>`;
-    todoDescription.outerHTML = `<input type='text' value ='${originalDescription}'></input>`;
+    todoDescription.outerHTML = `<input type='text' value='${originalDescription}'></input>`;
+    todoDateClone.outerHTML = `<input type='datetime-local' value='${raw}'></input>`;
   });
 
 // transform the p into input with outerHTML
@@ -325,7 +329,7 @@ function createDialog() {
 
     let currentTitle = document.querySelector("#title-input").value;
     let currentDescription = document.querySelector("#description-input").value;
-    let raw = document.querySelector("#dueDate-input").value;
+    raw = document.querySelector("#dueDate-input").value;
     let currentDueDate = formatDate(raw);
     let currentPriority = document.querySelector("#priority-input").value;
     let project = projects.find(project => project.name === document.querySelector("#project-input").value);
