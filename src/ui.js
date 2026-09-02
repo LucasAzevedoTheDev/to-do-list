@@ -135,21 +135,26 @@ function createTodoDiv(todo) {
   editTodoButton.textContent = "Edit";
 
   editTodoButton.addEventListener("click", function() {
-    todoDialog.appendChild(saveEditButton);
     const originalTitle = todoTitle.textContent;
     const originalDescription = todoDescription.textContent;
 
     todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'></input>`;
     todoDescription.outerHTML = `<input type='text' value='${originalDescription}'></input>`;
     todoDateClone.outerHTML = `<input type='datetime-local' value='${todo.dueDate}'></input>`;
-  });
 
-  const saveEditButton = document.createElement("button");
-  saveEditButton.classList.add("modal-button");
-  saveEditButton.textContent = "Save";
+    const saveEditButton = document.createElement("button");
+    saveEditButton.classList.add("modal-button");
+    saveEditButton.textContent = "Save";
+    todoDialog.appendChild(saveEditButton);
 
-  saveEditButton.addEventListener("click", function() {
-    todoDialog.close();
+    saveEditButton.addEventListener("click", function() {
+      todoDialog.close();
+      const newTitle = todoTitleClone.value;
+      todo.title = newTitle;
+      todoTitle.textContent = newTitle
+      console.log(todo.title);
+      todoDialog.replaceChildren();
+    });
   });
   // click the ok button
   // store the new value on the todo
@@ -164,6 +169,7 @@ function createTodoDiv(todo) {
     todoDialog.appendChild(todoPriority);
     todoDialog.appendChild(closeModalButton);
     todoDialog.appendChild(editTodoButton);
+    console.log(todo.title);
   });
 }
 
