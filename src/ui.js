@@ -147,6 +147,11 @@ function createTodoDiv(todo) {
     editInputDate.type = "datetime-local";
     editInputDate.value = todo.dueDate;
 
+    const editInputPriority = document.createElement("select");
+    // add options
+    // add values
+    // sinergia 
+
     todoTitleClone.replaceWith(editInputTitle);
     todoDescription.replaceWith(editInputDescription);
     todoDateClone.replaceWith(editInputDate);
@@ -157,7 +162,7 @@ function createTodoDiv(todo) {
     todoDialog.appendChild(saveEditButton);
 
     saveEditButton.addEventListener("click", function() {
-      // todoDialog.close();
+      todoDialog.close();
       todo.title = editInputTitle.value
       todoTitle.textContent = editInputTitle.value;
 
@@ -165,8 +170,9 @@ function createTodoDiv(todo) {
       todoDescription.textContent = editInputDescription.value;
 
       todo.dueDate = editInputDate.value;
-      todoDate = formatDate(todo.dueDate);
-      // todoDialog.replaceChildren();
+      todoDate.textContent = formatDate(todo.dueDate);
+
+      todoDialog.replaceChildren();
     });
   });
   // click the ok button
