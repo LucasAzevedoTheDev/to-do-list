@@ -123,7 +123,7 @@ function createTodoDiv(todo) {
 
   const closeModalButton = document.createElement("button");
   closeModalButton.classList.add("modal-button");
-  closeModalButton.textContent = "Close";
+  closeModalButton.textContent = "Cancel";
 
   closeModalButton.addEventListener("click", () => {
     todoDialog.close()
@@ -157,12 +157,12 @@ function createTodoDiv(todo) {
     todoDialog.appendChild(saveEditButton);
 
     saveEditButton.addEventListener("click", function() {
-      todoDialog.close();
-      const newTitle = todoTitleClone.value;
-      todo.title = newTitle;
-      todoTitle.textContent = newTitle
-      console.log(todo.title);
-      todoDialog.replaceChildren();
+      // todoDialog.close();
+      todo.title = editInputTitle.value
+      console.log(todo);
+      todoTitle.textContent = editInputTitle.value;
+      // console.log(editInputTitle.value);
+      // todoDialog.replaceChildren();
     });
   });
   // click the ok button
@@ -178,7 +178,7 @@ function createTodoDiv(todo) {
     todoDialog.appendChild(todoPriority);
     todoDialog.appendChild(closeModalButton);
     todoDialog.appendChild(editTodoButton);
-    console.log(todo.title);
+    console.log(todo);
   });
 }
 
