@@ -138,6 +138,17 @@ function createTodoDiv(todo) {
     const originalTitle = todoTitle.textContent;
     const originalDescription = todoDescription.textContent;
 
+    const editInputTitle = document.createElement("input");
+    editInputTitle.type = "text";
+    editInputTitle.value = todoTitle.textContent;
+
+    const editInputDescription = document.createElement("input");
+    editInputDescription.type = "text";
+    editInputDescription.value = todoTitle.textContent;
+
+    const editDate = document.createElement("input");
+    editDate.type = "date-time-local";
+    editDate.value = todo.dueDate;
     // REPLACE HERE FOR CREATEELEMENT APPROACH
     todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'></input>`;
     todoDescription.outerHTML = `<input type='text' value='${originalDescription}'></input>`;
