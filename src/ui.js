@@ -138,6 +138,7 @@ function createTodoDiv(todo) {
     const originalTitle = todoTitle.textContent;
     const originalDescription = todoDescription.textContent;
 
+    // REPLACE HERE FOR CREATEELEMENT APPROACH
     todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'></input>`;
     todoDescription.outerHTML = `<input type='text' value='${originalDescription}'></input>`;
     todoDateClone.outerHTML = `<input type='datetime-local' value='${todo.dueDate}'></input>`;

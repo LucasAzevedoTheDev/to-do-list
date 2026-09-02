@@ -7,7 +7,7 @@ const defaultProject = addProject("General");
 createContainer();
 
 
-// enable the todoDialog to edit the todooo
+// FIX BUG ON EDIT.JS LINE 141
 // add localStorage feature
 
 
