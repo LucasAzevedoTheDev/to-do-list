@@ -159,9 +159,13 @@ function createTodoDiv(todo) {
     saveEditButton.addEventListener("click", function() {
       // todoDialog.close();
       todo.title = editInputTitle.value
-      console.log(todo);
       todoTitle.textContent = editInputTitle.value;
-      // console.log(editInputTitle.value);
+
+      todo.description = editInputDescription.value;
+      todoDescription.textContent = editInputDescription.value;
+
+      todo.dueDate = editInputDate.value;
+      todoDate = formatDate(todo.dueDate);
       // todoDialog.replaceChildren();
     });
   });
