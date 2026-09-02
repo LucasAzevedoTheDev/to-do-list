@@ -135,24 +135,21 @@ function createTodoDiv(todo) {
   editTodoButton.textContent = "Edit";
 
   editTodoButton.addEventListener("click", function() {
-    const originalTitle = todoTitle.textContent;
-    const originalDescription = todoDescription.textContent;
-
     const editInputTitle = document.createElement("input");
     editInputTitle.type = "text";
     editInputTitle.value = todoTitle.textContent;
 
     const editInputDescription = document.createElement("input");
     editInputDescription.type = "text";
-    editInputDescription.value = todoTitle.textContent;
+    editInputDescription.value = todoDescription.textContent;
 
-    const editDate = document.createElement("input");
-    editDate.type = "date-time-local";
-    editDate.value = todo.dueDate;
-    // REPLACE HERE FOR CREATEELEMENT APPROACH
-    todoTitleClone.outerHTML = `<input type='text' value='${originalTitle}'></input>`;
-    todoDescription.outerHTML = `<input type='text' value='${originalDescription}'></input>`;
-    todoDateClone.outerHTML = `<input type='datetime-local' value='${todo.dueDate}'></input>`;
+    const editInputDate = document.createElement("input");
+    editInputDate.type = "datetime-local";
+    editInputDate.value = todo.dueDate;
+
+    todoTitleClone.replaceWith(editInputTitle);
+    todoDescription.replaceWith(editInputDescription);
+    todoDateClone.replaceWith(editInputDate);
 
     const saveEditButton = document.createElement("button");
     saveEditButton.classList.add("modal-button");
