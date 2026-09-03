@@ -148,6 +148,11 @@ function createTodoDiv(todo) {
     editInputDate.value = todo.dueDate;
 
     const editInputPriority = document.createElement("select");
+    console.log(editInputPriority);
+    const optionDefault = document.createElement("option");
+    optionDefault.value = todo.priority;
+    optionDefault.textContent = todo.priority;
+    editInputPriority.appendChild(optionDefault);
     // add options
     // add values
     // sinergia 
@@ -155,6 +160,7 @@ function createTodoDiv(todo) {
     todoTitleClone.replaceWith(editInputTitle);
     todoDescription.replaceWith(editInputDescription);
     todoDateClone.replaceWith(editInputDate);
+    todoPriority.replaceWith(editInputPriority);
 
     const saveEditButton = document.createElement("button");
     saveEditButton.classList.add("modal-button");
@@ -175,10 +181,6 @@ function createTodoDiv(todo) {
       todoDialog.replaceChildren();
     });
   });
-  // click the ok button
-  // store the new value on the todo
-  // set the input value to the p text content
-  // transform the input into p back
 
   todoDiv.addEventListener("click", () => {
     todoDialog.showModal();
