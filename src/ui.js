@@ -150,6 +150,7 @@ function createTodoDiv(todo) {
     editInputDate.value = todo.dueDate;
 
     const editInputPriority = document.createElement("select");
+
     const optionDefault = document.createElement("option");
     optionDefault.value = todo.priority;
     optionDefault.textContent = priorityText;
@@ -161,9 +162,6 @@ function createTodoDiv(todo) {
       const option = new Option(text, priority);
       editInputPriority.add(option);
     });
-    // add options
-    // add values
-    // sinergia 
 
     todoTitleClone.replaceWith(editInputTitle);
     todoDescription.replaceWith(editInputDescription);
@@ -187,7 +185,7 @@ function createTodoDiv(todo) {
       todoDate.textContent = formatDate(todo.dueDate);
 
       todo.priority = editInputPriority.value;
-      
+      addPriorityColor(todo, todoDiv);
       todoDialog.replaceChildren();
     });
   });
