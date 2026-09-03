@@ -150,9 +150,12 @@ function createTodoDiv(todo) {
     const editInputPriority = document.createElement("select");
     console.log(editInputPriority);
     const optionDefault = document.createElement("option");
-    optionDefault.value = todo.priority;
-    optionDefault.textContent = todo.priority;
+    optionDefault.value = todo.priority.value;
+    optionDefault.textContent = todo.priority.text;
     editInputPriority.appendChild(optionDefault);
+    console.log(optionDefault.value);
+    console.log(optionDefault.textContent)
+    // const otherOptions = priority.filter(item => item !== )
     // add options
     // add values
     // sinergia 
@@ -305,7 +308,9 @@ function createDialog() {
   priorityInput.add(defaultPriorityOption);
 
   priority.forEach(priority => {
-    const option = new Option(priority.text, priority.value);
+    const value = priority.value;
+    const text = value.charAt(0).toUpperCase() + value.slice(1);
+    const option = new Option(text, value);
     priorityInput.add(option);
   });
 
