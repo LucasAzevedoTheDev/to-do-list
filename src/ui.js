@@ -87,9 +87,8 @@ function createTodoDiv(todo) {
 
   const todoPriority = document.createElement("p");
   todoPriority.classList.add("todo-priority");
-  const value = todo.priority;
-  const text = value.charAt(0).toUpperCase() + value.slice(1);
-  todoPriority.textContent = `${text} priority`;
+  const priorityText = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
+  todoPriority.textContent = `${priorityText} priority`;
 
   const todoCheck = document.createElement("input");
   todoCheck.type = "checkbox";
@@ -152,11 +151,9 @@ function createTodoDiv(todo) {
     const editInputPriority = document.createElement("select");
     console.log(editInputPriority);
     const optionDefault = document.createElement("option");
-    optionDefault.value = todo.priority.value;
-    optionDefault.textContent = todo.priority.text;
+    optionDefault.value = todo.priority;
+    optionDefault.textContent = priorityText;
     editInputPriority.appendChild(optionDefault);
-    console.log(optionDefault.value);
-    console.log(optionDefault.textContent)
     // const otherOptions = priority.filter(item => item !== )
     // add options
     // add values
@@ -310,9 +307,8 @@ function createDialog() {
   priorityInput.add(defaultPriorityOption);
 
   priority.forEach(priority => {
-    const value = priority;
-    const text = value.charAt(0).toUpperCase() + value.slice(1);
-    const option = new Option(text, value);
+    const text = priority.charAt(0).toUpperCase() + priority.slice(1);
+    const option = new Option(text, priority);
     priorityInput.add(option);
   });
 
