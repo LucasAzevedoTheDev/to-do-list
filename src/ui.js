@@ -150,12 +150,17 @@ function createTodoDiv(todo) {
     editInputDate.value = todo.dueDate;
 
     const editInputPriority = document.createElement("select");
-    console.log(editInputPriority);
     const optionDefault = document.createElement("option");
     optionDefault.value = todo.priority;
     optionDefault.textContent = priorityText;
     editInputPriority.appendChild(optionDefault);
-    // const otherOptions = priority.filter(item => item !== )
+
+    const otherOptions = priority.filter(item => item !== todo.priority);
+    otherOptions.forEach(priority => {
+      const text = priority.charAt(0).toUpperCase() + priority.slice(1);
+      const option = new Option(text, priority);
+      editInputPriority.add(option);
+    });
     // add options
     // add values
     // sinergia 
@@ -193,7 +198,6 @@ function createTodoDiv(todo) {
     todoDialog.appendChild(todoPriority);
     todoDialog.appendChild(closeModalButton);
     todoDialog.appendChild(editTodoButton);
-    console.log(todo);
   });
 }
 
@@ -381,7 +385,6 @@ function createDialog() {
         let sorted = sortByDate(project);
         sorted.forEach((todo) => {
           createTodoDiv(todo);
-          console.log(todo);
         }); 
       }
       form.reset();
