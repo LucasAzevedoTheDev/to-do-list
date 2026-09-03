@@ -136,6 +136,7 @@ function createTodoDiv(todo) {
   editTodoButton.textContent = "Edit";
 
   editTodoButton.addEventListener("click", function() {
+    editTodoButton.remove();
     const editInputTitle = document.createElement("input");
     editInputTitle.type = "text";
     editInputTitle.value = todoTitle.textContent;
