@@ -87,7 +87,9 @@ function createTodoDiv(todo) {
 
   const todoPriority = document.createElement("p");
   todoPriority.classList.add("todo-priority");
-  todoPriority.textContent = `${todo.priority} priority`;
+  const value = todo.priority;
+  const text = value.charAt(0).toUpperCase() + value.slice(1);
+  todoPriority.textContent = `${text} priority`;
 
   const todoCheck = document.createElement("input");
   todoCheck.type = "checkbox";
@@ -308,7 +310,7 @@ function createDialog() {
   priorityInput.add(defaultPriorityOption);
 
   priority.forEach(priority => {
-    const value = priority.value;
+    const value = priority;
     const text = value.charAt(0).toUpperCase() + value.slice(1);
     const option = new Option(text, value);
     priorityInput.add(option);
@@ -382,6 +384,7 @@ function createDialog() {
         let sorted = sortByDate(project);
         sorted.forEach((todo) => {
           createTodoDiv(todo);
+          console.log(todo);
         }); 
       }
       form.reset();
