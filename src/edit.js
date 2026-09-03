@@ -43,12 +43,21 @@ function sortByDate(project) {
 function addPriorityColor(todo, div) {
   if(todo.priority === "low") {
     div.classList.add("low-priority");
+
+    div.classList.remove("medium-priority");
+    div.classList.remove("high-priority");
   }
   else if(todo.priority === "medium") {
     div.classList.add("medium-priority");
+
+    div.classList.remove("low-priority");
+    div.classList.remove("high-priority");
   }
   else if(todo.priority === "high") {
     div.classList.add("high-priority");
+
+    div.classList.remove("low-priority");
+    div.classList.remove("medium-priority");
   }
 }
 

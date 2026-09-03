@@ -186,6 +186,8 @@ function createTodoDiv(todo) {
       todo.dueDate = editInputDate.value;
       todoDate.textContent = formatDate(todo.dueDate);
 
+      todo.priority = editInputPriority.value;
+      
       todoDialog.replaceChildren();
     });
   });
