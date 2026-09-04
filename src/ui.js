@@ -155,7 +155,6 @@ function createTodoDiv(todo) {
     optionDefault.value = todo.priority;
     optionDefault.textContent = priorityText;
     editInputPriority.appendChild(optionDefault);
-
     const otherOptions = priority.filter(item => item !== todo.priority);
     otherOptions.forEach(priority => {
       const text = priority.charAt(0).toUpperCase() + priority.slice(1);
@@ -187,7 +186,11 @@ function createTodoDiv(todo) {
       todo.priority = editInputPriority.value;
       addPriorityColor(todo, todoDiv);
       todoDialog.replaceChildren();
+      console.log(todo.priority);
+      console.log(priorityText);
     });
+    console.log(optionDefault.value);
+    console.log(otherOptions);
   });
 
   todoDiv.addEventListener("click", () => {
