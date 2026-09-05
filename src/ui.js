@@ -20,6 +20,8 @@ containerDiv.appendChild(todoDialog);
 
 let currentProject;
 let projectDiv;
+let priorityText;
+let todoPriority;
 
 function createTheDiv() {
   projectDiv = document.createElement("div");
@@ -85,9 +87,9 @@ function createTodoDiv(todo) {
   todoDate.classList.add("todo-date");
   todoDate.textContent = formatDate(todo.dueDate);
 
-  const todoPriority = document.createElement("p");
+  todoPriority = document.createElement("p");
   todoPriority.classList.add("todo-priority");
-  const priorityText = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
+  priorityText = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
   todoPriority.textContent = `${priorityText} priority`;
 
   const todoCheck = document.createElement("input");
@@ -184,13 +186,11 @@ function createTodoDiv(todo) {
       todoDate.textContent = formatDate(todo.dueDate);
 
       todo.priority = editInputPriority.value;
+      priorityText = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
+      todoPriority.textContent = `${priorityText} priority`;
       addPriorityColor(todo, todoDiv);
       todoDialog.replaceChildren();
-      console.log(todo.priority);
-      console.log(priorityText);
     });
-    console.log(optionDefault.value);
-    console.log(otherOptions);
   });
 
   todoDiv.addEventListener("click", () => {
