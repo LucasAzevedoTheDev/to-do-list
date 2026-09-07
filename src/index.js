@@ -6,7 +6,7 @@ import {formatDate} from "./edit.js";
 const defaultProject = addProject("General");
 createContainer();
 
-// add localStorage feature
+// keep going with localStorage
 
 
 
