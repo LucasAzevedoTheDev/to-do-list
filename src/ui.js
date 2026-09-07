@@ -1,6 +1,6 @@
 import "./styles.css";
 import {deleteTodo, deleteProject, formatDate, sortByDate, addPriorityColor} from "./edit.js";
-import {addProject, addTodoToProject, projects, priority} from "./todo.js";
+import {addProject, addTodoToProject, projects, priority, addDataToLocalStorage} from "./todo.js";
 import {format} from "date-fns";
 
 const body = document.querySelector("body");
@@ -44,7 +44,6 @@ function createProjectsDiv() {
       sorted.forEach((todo) => {
         createTodoDiv(todo);
       }); 
-
     });
   });
 }
@@ -236,6 +235,7 @@ function createNewProjectButton() {
       createProjectsDiv();
       dialog.replaceChildren();
       createDialog();
+      addDataToLocalStorage();
     }
   });
 }
