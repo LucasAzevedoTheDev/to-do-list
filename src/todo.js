@@ -28,14 +28,13 @@ function addProject(name) {
   return project;
 }
 
-
 function addTodoToProject(title, description, dueDate, priority, project) {
   const todo = new Todo(title, description, dueDate, priority, project);
   project.todos.push(todo);
 
   return todo;
 }
-// Set up a function that saves the projects 
+
 function addDataToLocalStorage() {
   projects.forEach((project) => {
     const projectsData = JSON.stringify(project, (key, value) => {
@@ -45,7 +44,9 @@ function addDataToLocalStorage() {
       return value;
     });
     localStorage.setItem(`${project.name}`, projectsData);
+    const object = JSON.parse(projectsData);
+    console.log(object);
   });
 }
-// (and todos) to localStorage every time a new project (or todo) is created
+
 export {addProject, addTodoToProject, projects, priority, addDataToLocalStorage};
