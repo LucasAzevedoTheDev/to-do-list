@@ -7,10 +7,13 @@ const defaultProject = addProject("General");
 createContainer();
 
 let current = localStorage;
-console.log(current);
+// console.log(current);
 
-for(i = 0; i < current[i]; i++) {
-  addProject(current[i].name);
+for(let i = 0; i < localStorage.length; i++) {
+  let project = localStorage.key(i);
+  let object = localStorage.getItem(project)
+  console.log(object);
+  
 }
 
 // keep going with localStorage

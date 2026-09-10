@@ -45,7 +45,7 @@ function addDataToLocalStorage() {
     });
     localStorage.setItem(`${project.name}`, projectsData);
     const object = JSON.parse(projectsData);
-    console.log(object);
+    // console.log(object);
   });
 }
 
