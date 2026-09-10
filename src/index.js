@@ -1,9 +1,13 @@
 import "./styles.css";
-import {addProject, addTodoToProject, projects, priority, addDataToLocalStorage} from "./todo.js";
+import {addProject, addTodoToProject, projects, priority, addDataToLocalStorage, addLocalStoredProjects} from "./todo.js";
 import {createContainer, createTodoDiv} from "./ui.js";
 import {formatDate} from "./edit.js";
 
-const defaultProject = addProject("General");
+console.log(projects.length);
+if(projects.length === 0) {
+  addProject("General");
+}
+console.log(projects.length); 
 createContainer();
 
 let current = localStorage;
@@ -18,20 +22,13 @@ window.addEventListener('DOMContentLoaded', () => {
         if (navigationType === 'reload') {
             console.log('This page was refreshed!');
             addDataToLocalStorage();
+            addLocalStoredProjects();
+            console.log(projects.length);
         } else {
             console.log('This is a fresh page load (or navigated via link/history).');
         }
     }
 });
-
-for(let i = 0; i < localStorage.length; i++) {
-  const projectName = localStorage.key(i);
-  const projectObject = localStorage.getItem(projectName);
-  const object = JSON.parse(projectObject);
-  // console.log(object);
-  projects.push(object);
-  // console.log(projects);
-}
 
 // keep going with localStorage
 

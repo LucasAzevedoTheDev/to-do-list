@@ -44,9 +44,20 @@ function addDataToLocalStorage() {
       return value;
     });
     localStorage.setItem(`${project.name}`, projectsData);
-    const object = JSON.parse(projectsData);
-    // console.log(object);
   });
 }
 
-export {addProject, addTodoToProject, projects, priority, addDataToLocalStorage};
+function addLocalStoredProjects() {
+  for(let i = 0; i < localStorage.length; i++) {
+    const projectName = localStorage.key(i);
+    const projectObject = localStorage.getItem(projectName);
+    const object = JSON.parse(projectObject);
+
+    const alreadyHave = projects.some(project => project.name === projectName);
+    if(!alreadyHave) {
+      projects.push(object);
+    }
+  }
+}
+
+export {addProject, addTodoToProject, projects, priority, addDataToLocalStorage, addLocalStoredProjects};
