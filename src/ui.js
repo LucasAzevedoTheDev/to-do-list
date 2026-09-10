@@ -235,6 +235,7 @@ function createNewProjectButton() {
       createProjectsDiv();
       dialog.replaceChildren();
       createDialog();
+      addDataToLocalStorage();
     }
   });
 }

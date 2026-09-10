@@ -3,24 +3,13 @@ import {addProject, addTodoToProject, projects, priority, addDataToLocalStorage,
 import {createContainer, createTodoDiv} from "./ui.js";
 import {formatDate} from "./edit.js";
 
-if(projects.length === 0) {
+if(localStorage.length === 0) {
   addProject("General");
+} else {
+  addLocalStoredProjects();
 }
 
-createContainer();
-
-window.addEventListener('DOMContentLoaded', () => {
-    const navigationEntries = performance.getEntriesByType('navigation');
-    
-    if (navigationEntries.length > 0) {
-        const navigationType = navigationEntries[0].type;
-        
-        if (navigationType === 'reload') {
-            addDataToLocalStorage();
-            addLocalStoredProjects();
-        } 
-    }
-});
+createContainer()
 
 // keep going with localStorage
 
