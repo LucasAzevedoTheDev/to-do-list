@@ -200,8 +200,6 @@ function createTodoDiv(todo) {
     todoDialog.appendChild(todoPriority);
     todoDialog.appendChild(closeModalButton);
     todoDialog.appendChild(editTodoButton);
-    addDataToLocalStorage();
-    console.log(localStorage);
   });
 }
 
@@ -237,7 +235,6 @@ function createNewProjectButton() {
       createProjectsDiv();
       dialog.replaceChildren();
       createDialog();
-      addDataToLocalStorage();
     }
   });
 }
