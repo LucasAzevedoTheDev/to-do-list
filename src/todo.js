@@ -50,6 +50,12 @@ function addDataToLocalStorage() {
 function addLocalStoredProjects() {
   const saved = localStorage.getItem("projects");
   const projectsArray = JSON.parse(saved);
+
+  projectsArray.forEach((project) => {
+    project.todos.forEach((todo) => {
+      todo.project = project;
+    });
+  });
   projects.push(...projectsArray);
 }
 
