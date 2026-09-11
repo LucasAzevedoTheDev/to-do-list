@@ -7,6 +7,7 @@
 body {
   background-color: #0d0d0d;
   min-height: 100vh;
+  display: flex;
 }
 
 .container-div {
@@ -52,12 +53,10 @@ body {
 .project-div {
   background-color: #242422;  
   padding: 5px;
-  margin-top: 10px;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  min-width: 200px;
+  max-width: 500px;
   gap: 15px;
-  height: 7vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
