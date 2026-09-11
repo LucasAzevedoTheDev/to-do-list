@@ -196,6 +196,7 @@ function createTodoDiv(todo) {
       todoPriority.textContent = `${priorityText} priority`;
       addPriorityColor(todo, todoDiv);
       todoDialog.replaceChildren();
+      addDataToLocalStorage();
     });
   });
 
