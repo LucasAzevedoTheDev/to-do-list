@@ -19,8 +19,6 @@ containerDiv.appendChild(todoDialog);
 
 let currentProject;
 let projectDiv;
-let priorityText;
-let todoPriority;
 
 function createTheDiv() {
   projectDiv = document.createElement("div");
@@ -91,9 +89,9 @@ function createTodoDiv(todo) {
   todoDate.classList.add("todo-date");
   todoDate.textContent = formatDate(todo.dueDate);
 
-  todoPriority = document.createElement("p");
+  const todoPriority = document.createElement("p");
   todoPriority.classList.add("todo-priority");
-  priorityText = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
+  let priorityText = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
   todoPriority.textContent = `${priorityText} priority`;
 
   const todoCheck = document.createElement("input");
