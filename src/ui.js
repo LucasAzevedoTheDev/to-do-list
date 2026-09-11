@@ -229,8 +229,7 @@ function createNewProjectButton() {
   const newProjectButton = document.createElement("button");
   newProjectButton.classList.add("new-project-button");
   newProjectButton.textContent = "New Project";
-  containerDiv.appendChild(newProjectButton);
-  
+  projectDiv.appendChild(newProjectButton);
   newProjectButton.addEventListener("click", () => {
     const projectName = prompt("Please enter the project name:", "");
     const alreadyHave = projects.some(project => project.name === projectName);
