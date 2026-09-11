@@ -1,3 +1,5 @@
+import {sortByDate} from "./edit.js";
+
 let projects = [];
 let priority = ["low", "medium", "high"];
 
@@ -57,6 +59,7 @@ function addLocalStoredProjects() {
     if(!alreadyHave) {
       projects.push(object);
     }
+    console.log(object);
   }
 }
 

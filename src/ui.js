@@ -52,12 +52,18 @@ function createContainer() {
   body.appendChild(containerDiv);
   containerDiv.appendChild(todoContainer);
   currentProject = projects[0];
+
   createTheDiv();
   createProjectsDiv();
   createDialog();
   createNewButton();
   createNewProjectButton();
   createDeleteProjectButton();
+
+  let sorted = sortByDate(currentProject); 
+  sorted.forEach((todo) => {
+    createTodoDiv(todo);
+  });
 }
 
 function createTodoDiv(todo) {
@@ -394,6 +400,7 @@ function createDialog() {
           createTodoDiv(todo);
         }); 
       }
+      addDataToLocalStorage();
       form.reset();
       dialog.close();
     }

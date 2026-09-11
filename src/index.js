@@ -11,7 +11,7 @@ if(localStorage.length === 0) {
 
 createContainer()
 
-// keep going with localStorage
+// keep going with localStorage (now with the todos)
 
 
 
