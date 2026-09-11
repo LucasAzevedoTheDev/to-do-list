@@ -8,7 +8,7 @@ if(localStorage.getItem("projects") === null) {
   addLocalStoredProjects();
 }
 
-createContainer()
+createContainer();
 
 
 
