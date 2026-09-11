@@ -97,6 +97,7 @@ function createTodoDiv(todo) {
   const todoCheck = document.createElement("input");
   todoCheck.type = "checkbox";
   todoCheck.classList.add("todo-check");
+  todoCheck.checked = todo.completed;
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
