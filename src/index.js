@@ -10,7 +10,8 @@ if(localStorage.length === 0) {
 }
 
 createContainer()
-
+console.log(projects);
+console.log(localStorage);
 // keep going with localStorage (now with the todos)
 
 

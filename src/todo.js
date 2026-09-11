@@ -38,29 +38,38 @@ function addTodoToProject(title, description, dueDate, priority, project) {
 }
 
 function addDataToLocalStorage() {
-  projects.forEach((project) => {
-    const projectsData = JSON.stringify(project, (key, value) => {
-      if(key === "project") {
-        return undefined;
-      }
-      return value;
-    });
-    localStorage.setItem(`${project.name}`, projectsData);
+  const projectsData = JSON.stringify(projects, (key, value) => {
+    if(key === "project") {
+      return undefined;
+    }
+    return value;
   });
+  localStorage.setItem("projects", projectsData);
+    // projects.forEach((project) => {
+    // const projectsData = JSON.stringify(project, (key, value) => {
+    //   if(key === "project") {
+    //     return undefined;
+    //   }
+    //   return value;
+    // });
+    // localStorage.setItem(`${project.name}`, projectsData);
+    // });
 }
 
 function addLocalStoredProjects() {
-  for(let i = 0; i < localStorage.length; i++) {
-    const projectName = localStorage.key(i);
-    const projectObject = localStorage.getItem(projectName);
-    const object = JSON.parse(projectObject);
+  // for(let i = 0; i < localStorage.length; i++) {
+  //   const projectName = localStorage.key(i);
+  //   const projectObject = localStorage.getItem(projectName);
+  //   const object = JSON.parse(projectObject);
 
-    const alreadyHave = projects.some(project => project.name === projectName);
-    if(!alreadyHave) {
-      projects.push(object);
-    }
-    console.log(object);
-  }
+  //   const alreadyHave = projects.some(project => project.name === projectName);
+  //   if(!alreadyHave) {
+  //     projects.push(object);
+  //   }
+  //   console.log(object);
+  // }
+  
+
 }
 
 export {addProject, addTodoToProject, projects, priority, addDataToLocalStorage, addLocalStoredProjects};
