@@ -27,6 +27,10 @@ function createTheDiv() {
 }
 
 function createProjectsDiv() {
+  const projectDivHeader = document.createElement("h2");
+  projectDivHeader.classList.add("h2-header");
+  projectDivHeader.textContent = "Hello, user!";
+  projectDiv.appendChild(projectDivHeader);
 
   projects.forEach((project) => {
     const projectButtons = document.createElement("button");
