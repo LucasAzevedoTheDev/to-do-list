@@ -1,7 +1,6 @@
 import "./styles.css";
 import {deleteTodo, deleteProject, formatDate, sortByDate, addPriorityColor} from "./edit.js";
 import {addProject, addTodoToProject, projects, priority, addDataToLocalStorage} from "./todo.js";
-import {format} from "date-fns";
 
 const body = document.querySelector("body");
 const containerDiv = document.createElement("div");

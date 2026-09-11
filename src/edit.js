@@ -1,5 +1,6 @@
 import {projects} from "./todo.js";
 import {parseISO, format, isToday, isThisYear, compareAsc} from "date-fns";
+
 function deleteTodo(todo) {
   let currentProject = todo.project.todos;
 

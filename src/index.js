@@ -1,7 +1,6 @@
 import "./styles.css";
-import {addProject, addTodoToProject, projects, priority, addDataToLocalStorage, addLocalStoredProjects} from "./todo.js";
-import {createContainer, createTodoDiv} from "./ui.js";
-import {formatDate} from "./edit.js";
+import {addProject, addLocalStoredProjects} from "./todo.js";
+import {createContainer} from "./ui.js";
 
 if(localStorage.length === 0) {
   addProject("General");
@@ -10,8 +9,6 @@ if(localStorage.length === 0) {
 }
 
 createContainer()
-// console.log(projects);
-console.log(localStorage);
 
 
 

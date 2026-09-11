@@ -1,5 +1,3 @@
-import {sortByDate} from "./edit.js";
-
 let projects = [];
 let priority = ["low", "medium", "high"];
 
