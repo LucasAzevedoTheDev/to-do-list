@@ -108,6 +108,7 @@ function createTodoDiv(todo) {
     event.stopPropagation(); 
     todoDiv.remove();
     deleteTodo(todo);
+    addDataToLocalStorage();
   });
 
   checkboxDiv.appendChild(todoCheck);
@@ -124,6 +125,7 @@ function createTodoDiv(todo) {
     else {
       todo.completed = false;
     }
+    addDataToLocalStorage();
   });
 
   const todoTitleClone = todoTitle.cloneNode(true);
@@ -264,6 +266,7 @@ function createDeleteProjectButton() {
     }
 
     deleteProject(currentProject);
+    addDataToLocalStorage();
     for(let i = 0; i < projectDiv.children.length; i++) {
       if(projectDiv.children[i].textContent === currentProject.name) {
         projectDiv.children[i].remove();
