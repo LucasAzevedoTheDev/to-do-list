@@ -9,6 +9,9 @@ containerDiv.classList.add("container-div");
 const todoContainer = document.createElement("div");
 todoContainer.classList.add("todo-container");
 
+const buttonsContainer = document.createElement("div");
+buttonsContainer.classList.add("buttons-container");
+
 const dialog = document.createElement("dialog");
 dialog.classList.add("modal");
 containerDiv.appendChild(dialog);
@@ -52,6 +55,7 @@ function createProjectsDiv() {
 function createContainer() {
   body.appendChild(containerDiv);
   containerDiv.appendChild(todoContainer);
+  containerDiv.appendChild(buttonsContainer);
   currentProject = projects[0];
 
   createTheDiv();
@@ -218,7 +222,7 @@ function createNewButton() {
   const newButton = document.createElement("button");
   newButton.classList.add("new-button");
   newButton.textContent = "New Todo";
-  containerDiv.appendChild(newButton);
+  buttonsContainer.appendChild(newButton);
 
   newButton.addEventListener("click", () => {
       dialog.showModal();
@@ -258,7 +262,7 @@ function createDeleteProjectButton() {
   const deleteProjectButton = document.createElement("button");
   deleteProjectButton.classList.add("delete-project-button");
   deleteProjectButton.textContent = "Delete Project";
-  containerDiv.appendChild(deleteProjectButton);
+  buttonsContainer.appendChild(deleteProjectButton);
 
   deleteProjectButton.addEventListener("click", () => {
 

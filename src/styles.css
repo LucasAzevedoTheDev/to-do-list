@@ -50,6 +50,15 @@ body {
   gap: 15px;
 }
 
+.buttons-container {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
 .project-div {
   background-color: #242422;  
   padding: 5px;
