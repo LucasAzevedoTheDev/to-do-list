@@ -42,6 +42,7 @@ function createProjectsDiv() {
     projectDiv.appendChild(projectButtons);
 
     projectButtons.addEventListener("click", (event) => {
+      
       todoContainer.replaceChildren();
       currentProject = projects.find(project => project.name === event.target.textContent);
       let sorted = sortByDate(currentProject);
@@ -232,7 +233,7 @@ function createNewButton() {
 function createNewProjectButton() {
   const newProjectButton = document.createElement("button");
   newProjectButton.classList.add("new-project-button");
-  newProjectButton.textContent = "New Project";
+  newProjectButton.textContent = "+ New Project";
   projectDiv.appendChild(newProjectButton);
   newProjectButton.addEventListener("click", () => {
     const projectName = prompt("Please enter the project name:", "");
@@ -252,6 +253,7 @@ function createNewProjectButton() {
       projectDiv.replaceChildren();
       createProjectsDiv();
       dialog.replaceChildren();
+      createNewProjectButton();
       createDialog();
       addDataToLocalStorage();
     }
