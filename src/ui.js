@@ -42,7 +42,11 @@ function createProjectsDiv() {
     projectDiv.appendChild(projectButtons);
 
     projectButtons.addEventListener("click", (event) => {
-      
+      const buttons = document.querySelectorAll(".project-buttons");
+      buttons.forEach((button) => {
+        button.classList.remove("active-button");
+      });
+      event.target.classList.add("active-button");
       todoContainer.replaceChildren();
       currentProject = projects.find(project => project.name === event.target.textContent);
       let sorted = sortByDate(currentProject);
