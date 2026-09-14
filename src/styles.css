@@ -106,6 +106,9 @@ body {
 .project-buttons:hover {
   background-color: #383835;
 }
+.active-button:hover {
+  background-color: #5e62c9
+}
 
 .low-priority {
   border-left-color: #0ca30c;

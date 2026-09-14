@@ -41,6 +41,10 @@ function createProjectsDiv() {
     projectButtons.textContent = project.name;
     projectDiv.appendChild(projectButtons);
 
+    if(project === currentProject) {
+      projectButtons.classList.add("active-button");
+    }
+
     projectButtons.addEventListener("click", (event) => {
       const buttons = document.querySelectorAll(".project-buttons");
       buttons.forEach((button) => {
