@@ -150,6 +150,28 @@ button {
   cursor: pointer;
 }
 
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 15px;
+  background-color: transparent;
+  border: 1px solid #383835;
+  border-radius: 6px;
+  color: #9a9a95;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #d03b3b;
+  border-color: #d03b3b;
+  color: #ffffff;
+}
+
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
