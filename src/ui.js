@@ -97,6 +97,7 @@ function createTodoDiv(todo) {
   const todoTitle = document.createElement("p");
   todoTitle.classList.add("todo-title");
   todoTitle.textContent = todo.title;
+  todoTitle.classList.toggle("completed", todo.completed);
 
   const todoDescription = document.createElement("p");
   todoDescription.classList.add("todo-description");
@@ -140,17 +141,19 @@ function createTodoDiv(todo) {
   addPriorityColor(todo, todoDiv);
 
   todoCheck.addEventListener("click", function(event) {
-    event.stopPropagation(); 
+    event.stopPropagation();
     if(this.checked) {
       todo.completed = true;
     }
     else {
       todo.completed = false;
     }
+    todoTitle.classList.toggle("completed", todo.completed);
     addDataToLocalStorage();
   });
 
   const todoTitleClone = todoTitle.cloneNode(true);
+  todoTitleClone.classList.remove("completed");
   const todoDateClone = todoDate.cloneNode(true);
 
   const closeModalButton = document.createElement("button");
